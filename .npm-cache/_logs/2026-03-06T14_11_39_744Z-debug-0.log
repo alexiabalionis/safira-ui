@@ -1,0 +1,1257 @@
+0 verbose cli /Users/alexia.balionis/.config/nvm/versions/node/v20.5.0/bin/node /Users/alexia.balionis/.config/nvm/versions/node/v20.5.0/bin/npm
+1 info using npm@10.8.1
+2 info using node@v20.5.0
+3 silly config load:file:/Users/alexia.balionis/.config/nvm/versions/node/v20.5.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/alexia.balionis/projects/pessoal/safira-ui/.npmrc
+5 silly config load:file:/Users/alexia.balionis/.npmrc
+6 silly config load:file:/Users/alexia.balionis/.config/nvm/versions/node/v20.5.0/etc/npmrc
+7 verbose title npm install eslint@8
+8 verbose argv "install" "--save-dev" "eslint@8"
+9 verbose logfile logs-max:10 dir:/Users/alexia.balionis/projects/pessoal/safira-ui/.npm-cache/_logs/2026-03-06T14_11_39_744Z-
+10 verbose logfile /Users/alexia.balionis/projects/pessoal/safira-ui/.npm-cache/_logs/2026-03-06T14_11_39_744Z-debug-0.log
+11 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly fetch manifest eslint@8
+15 silly packumentCache full:https://registry.npmjs.org/eslint cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/eslint 306ms (cache revalidated)
+17 silly packumentCache full:https://registry.npmjs.org/eslint set size:1949488 disposed:false
+18 silly placeDep ROOT eslint@8.57.1 REPLACE for: safira-ui@0.1.0 want: 8
+19 silly fetch manifest ajv@^6.12.4
+20 silly packumentCache full:https://registry.npmjs.org/ajv cache-miss
+21 silly fetch manifest espree@^9.6.1
+22 silly packumentCache full:https://registry.npmjs.org/espree cache-miss
+23 silly fetch manifest ignore@^5.2.0
+24 silly packumentCache full:https://registry.npmjs.org/ignore cache-miss
+25 silly fetch manifest globals@^13.19.0
+26 silly packumentCache full:https://registry.npmjs.org/globals cache-miss
+27 silly fetch manifest js-yaml@^4.1.0
+28 silly packumentCache full:https://registry.npmjs.org/js-yaml cache-miss
+29 silly fetch manifest doctrine@^3.0.0
+30 silly packumentCache full:https://registry.npmjs.org/doctrine cache-miss
+31 silly fetch manifest graphemer@^1.4.0
+32 silly packumentCache full:https://registry.npmjs.org/graphemer cache-miss
+33 http fetch GET 200 https://registry.npmjs.org/graphemer 41ms (cache miss)
+34 silly packumentCache full:https://registry.npmjs.org/graphemer set size:undefined disposed:false
+35 silly fetch manifest @eslint/js@8.57.1
+36 silly packumentCache full:https://registry.npmjs.org/@eslint%2fjs cache-miss
+37 http fetch GET 200 https://registry.npmjs.org/@eslint%2fjs 93ms (cache revalidated)
+38 silly packumentCache full:https://registry.npmjs.org/@eslint%2fjs set size:138411 disposed:false
+39 silly fetch manifest strip-ansi@^6.0.1
+40 silly packumentCache full:https://registry.npmjs.org/strip-ansi cache-miss
+41 http fetch GET 200 https://registry.npmjs.org/strip-ansi 57ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/strip-ansi set size:undefined disposed:false
+43 silly fetch manifest text-table@^0.2.0
+44 silly packumentCache full:https://registry.npmjs.org/text-table cache-miss
+45 http fetch GET 200 https://registry.npmjs.org/text-table 32ms (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/text-table set size:undefined disposed:false
+47 silly fetch manifest eslint-scope@^7.2.2
+48 silly packumentCache full:https://registry.npmjs.org/eslint-scope cache-miss
+49 http fetch GET 200 https://registry.npmjs.org/eslint-scope 29ms (cache revalidated)
+50 silly packumentCache full:https://registry.npmjs.org/eslint-scope set size:96445 disposed:false
+51 silly fetch manifest is-path-inside@^3.0.3
+52 silly packumentCache full:https://registry.npmjs.org/is-path-inside cache-miss
+53 http fetch GET 200 https://registry.npmjs.org/is-path-inside 31ms (cache miss)
+54 silly packumentCache full:https://registry.npmjs.org/is-path-inside set size:undefined disposed:false
+55 silly fetch manifest fast-deep-equal@^3.1.3
+56 silly packumentCache full:https://registry.npmjs.org/fast-deep-equal cache-miss
+57 http fetch GET 200 https://registry.npmjs.org/fast-deep-equal 40ms (cache revalidated)
+58 silly packumentCache full:https://registry.npmjs.org/fast-deep-equal set size:48634 disposed:false
+59 silly fetch manifest @eslint/eslintrc@^2.1.4
+60 silly packumentCache full:https://registry.npmjs.org/@eslint%2feslintrc cache-miss
+61 http fetch GET 200 https://registry.npmjs.org/doctrine 442ms (cache revalidated)
+62 silly packumentCache full:https://registry.npmjs.org/doctrine set size:64052 disposed:false
+63 silly fetch manifest file-entry-cache@^6.0.1
+64 silly packumentCache full:https://registry.npmjs.org/file-entry-cache cache-miss
+65 http fetch GET 200 https://registry.npmjs.org/@eslint%2feslintrc 126ms (cache revalidated)
+66 silly packumentCache full:https://registry.npmjs.org/@eslint%2feslintrc set size:165858 disposed:false
+67 silly fetch manifest eslint-visitor-keys@^3.4.3
+68 silly packumentCache full:https://registry.npmjs.org/eslint-visitor-keys cache-miss
+69 http fetch GET 200 https://registry.npmjs.org/file-entry-cache 37ms (cache revalidated)
+70 silly packumentCache full:https://registry.npmjs.org/file-entry-cache set size:151480 disposed:false
+71 silly fetch manifest @ungap/structured-clone@^1.2.0
+72 silly packumentCache full:https://registry.npmjs.org/@ungap%2fstructured-clone cache-miss
+73 http fetch GET 200 https://registry.npmjs.org/eslint-visitor-keys 32ms (cache revalidated)
+74 silly packumentCache full:https://registry.npmjs.org/eslint-visitor-keys set size:69949 disposed:false
+75 silly fetch manifest @humanwhocodes/config-array@^0.13.0
+76 silly packumentCache full:https://registry.npmjs.org/@humanwhocodes%2fconfig-array cache-miss
+77 http fetch GET 200 https://registry.npmjs.org/ajv 511ms (cache revalidated)
+78 silly packumentCache full:https://registry.npmjs.org/ajv set size:1120197 disposed:false
+79 http fetch GET 200 https://registry.npmjs.org/@humanwhocodes%2fconfig-array 53ms (cache miss)
+80 silly packumentCache full:https://registry.npmjs.org/@humanwhocodes%2fconfig-array set size:undefined disposed:false
+81 http fetch GET 200 https://registry.npmjs.org/@ungap%2fstructured-clone 64ms (cache miss)
+82 silly packumentCache full:https://registry.npmjs.org/@ungap%2fstructured-clone set size:undefined disposed:false
+83 http fetch GET 200 https://registry.npmjs.org/espree 606ms (cache revalidated)
+84 silly packumentCache full:https://registry.npmjs.org/espree set size:323320 disposed:false
+85 http fetch GET 200 https://registry.npmjs.org/js-yaml 610ms (cache revalidated)
+86 silly packumentCache full:https://registry.npmjs.org/js-yaml set size:152232 disposed:false
+87 http fetch GET 200 https://registry.npmjs.org/globals 612ms (cache revalidated)
+88 silly packumentCache full:https://registry.npmjs.org/globals set size:308609 disposed:false
+89 http fetch GET 200 https://registry.npmjs.org/ignore 614ms (cache revalidated)
+90 silly packumentCache full:https://registry.npmjs.org/ignore set size:237380 disposed:false
+91 silly placeDep ROOT @eslint/eslintrc@2.1.4 OK for: eslint@8.57.1 want: ^2.1.4
+92 silly placeDep ROOT @eslint/js@8.57.1 OK for: eslint@8.57.1 want: 8.57.1
+93 silly placeDep ROOT @humanwhocodes/config-array@0.13.0 OK for: eslint@8.57.1 want: ^0.13.0
+94 silly placeDep ROOT @ungap/structured-clone@1.3.0 OK for: eslint@8.57.1 want: ^1.2.0
+95 silly placeDep ROOT ajv@6.14.0 OK for: eslint@8.57.1 want: ^6.12.4
+96 silly placeDep node_modules/eslint doctrine@3.0.0 OK for: eslint@8.57.1 want: ^3.0.0
+97 silly placeDep ROOT eslint-scope@7.2.2 OK for: eslint@8.57.1 want: ^7.2.2
+98 silly placeDep ROOT eslint-visitor-keys@3.4.3 OK for: eslint@8.57.1 want: ^3.4.3
+99 silly placeDep ROOT espree@9.6.1 OK for: eslint@8.57.1 want: ^9.6.1
+100 silly placeDep ROOT fast-deep-equal@3.1.3 OK for: eslint@8.57.1 want: ^3.1.3
+101 silly placeDep ROOT file-entry-cache@6.0.1 OK for: eslint@8.57.1 want: ^6.0.1
+102 silly placeDep ROOT globals@13.24.0 OK for: eslint@8.57.1 want: ^13.19.0
+103 silly placeDep ROOT graphemer@1.4.0 OK for: eslint@8.57.1 want: ^1.4.0
+104 silly placeDep ROOT ignore@5.3.2 OK for: eslint@8.57.1 want: ^5.2.0
+105 silly placeDep ROOT is-path-inside@3.0.3 OK for: eslint@8.57.1 want: ^3.0.3
+106 silly placeDep ROOT js-yaml@4.1.1 OK for: eslint@8.57.1 want: ^4.1.0
+107 silly placeDep ROOT strip-ansi@6.0.1 OK for: eslint@8.57.1 want: ^6.0.1
+108 silly placeDep ROOT text-table@0.2.0 OK for: eslint@8.57.1 want: ^0.2.0
+109 silly fetch manifest espree@^9.6.0
+110 silly packumentCache full:https://registry.npmjs.org/espree cache-hit
+111 silly fetch manifest import-fresh@^3.2.1
+112 silly packumentCache full:https://registry.npmjs.org/import-fresh cache-miss
+113 silly fetch manifest strip-json-comments@^3.1.1
+114 silly packumentCache full:https://registry.npmjs.org/strip-json-comments cache-miss
+115 silly fetch manifest @humanwhocodes/object-schema@^2.0.3
+116 silly packumentCache full:https://registry.npmjs.org/@humanwhocodes%2fobject-schema cache-miss
+117 silly fetch manifest fast-deep-equal@^3.1.1
+118 silly packumentCache full:https://registry.npmjs.org/fast-deep-equal cache-hit
+119 silly fetch manifest fast-json-stable-stringify@^2.0.0
+120 silly packumentCache full:https://registry.npmjs.org/fast-json-stable-stringify cache-miss
+121 silly fetch manifest json-schema-traverse@^0.4.1
+122 silly packumentCache full:https://registry.npmjs.org/json-schema-traverse cache-miss
+123 silly fetch manifest uri-js@^4.2.2
+124 silly packumentCache full:https://registry.npmjs.org/uri-js cache-miss
+125 silly fetch manifest esrecurse@^4.3.0
+126 silly packumentCache full:https://registry.npmjs.org/esrecurse cache-miss
+127 http fetch GET 200 https://registry.npmjs.org/import-fresh 42ms (cache revalidated)
+128 silly packumentCache full:https://registry.npmjs.org/import-fresh set size:24604 disposed:false
+129 silly fetch manifest acorn@^8.9.0
+130 silly packumentCache full:https://registry.npmjs.org/acorn cache-miss
+131 http fetch GET 200 https://registry.npmjs.org/strip-json-comments 45ms (cache revalidated)
+132 silly packumentCache full:https://registry.npmjs.org/strip-json-comments set size:43569 disposed:false
+133 silly fetch manifest acorn-jsx@^5.3.2
+134 silly packumentCache full:https://registry.npmjs.org/acorn-jsx cache-miss
+135 http fetch GET 200 https://registry.npmjs.org/uri-js 46ms (cache revalidated)
+136 silly packumentCache full:https://registry.npmjs.org/uri-js set size:42559 disposed:false
+137 silly fetch manifest flat-cache@^3.0.4
+138 silly packumentCache full:https://registry.npmjs.org/flat-cache cache-miss
+139 http fetch GET 200 https://registry.npmjs.org/esrecurse 48ms (cache revalidated)
+140 silly packumentCache full:https://registry.npmjs.org/esrecurse set size:29005 disposed:false
+141 silly fetch manifest type-fest@^0.20.2
+142 silly packumentCache full:https://registry.npmjs.org/type-fest cache-miss
+143 http fetch GET 200 https://registry.npmjs.org/json-schema-traverse 51ms (cache revalidated)
+144 silly packumentCache full:https://registry.npmjs.org/json-schema-traverse set size:23537 disposed:false
+145 silly fetch manifest argparse@^2.0.1
+146 silly packumentCache full:https://registry.npmjs.org/argparse cache-miss
+147 http fetch GET 200 https://registry.npmjs.org/fast-json-stable-stringify 55ms (cache revalidated)
+148 silly packumentCache full:https://registry.npmjs.org/fast-json-stable-stringify set size:11337 disposed:false
+149 silly fetch manifest ansi-regex@^5.0.1
+150 silly packumentCache full:https://registry.npmjs.org/ansi-regex cache-miss
+151 http fetch GET 200 https://registry.npmjs.org/@humanwhocodes%2fobject-schema 60ms (cache miss)
+152 silly packumentCache full:https://registry.npmjs.org/@humanwhocodes%2fobject-schema set size:undefined disposed:false
+153 http fetch GET 200 https://registry.npmjs.org/acorn 56ms (cache revalidated)
+154 silly packumentCache full:https://registry.npmjs.org/acorn set size:379626 disposed:false
+155 http fetch GET 200 https://registry.npmjs.org/argparse 47ms (cache revalidated)
+156 silly packumentCache full:https://registry.npmjs.org/argparse set size:49266 disposed:false
+157 http fetch GET 200 https://registry.npmjs.org/flat-cache 55ms (cache revalidated)
+158 silly packumentCache full:https://registry.npmjs.org/flat-cache set size:164041 disposed:false
+159 http fetch GET 200 https://registry.npmjs.org/acorn-jsx 59ms (cache revalidated)
+160 silly packumentCache full:https://registry.npmjs.org/acorn-jsx set size:71068 disposed:false
+161 http fetch GET 200 https://registry.npmjs.org/type-fest 55ms (cache revalidated)
+162 silly packumentCache full:https://registry.npmjs.org/type-fest set size:554345 disposed:false
+163 http fetch GET 200 https://registry.npmjs.org/ansi-regex 55ms (cache miss)
+164 silly packumentCache full:https://registry.npmjs.org/ansi-regex set size:undefined disposed:false
+165 silly placeDep ROOT import-fresh@3.3.1 OK for: @eslint/eslintrc@2.1.4 want: ^3.2.1
+166 silly placeDep ROOT strip-json-comments@3.1.1 OK for: @eslint/eslintrc@2.1.4 want: ^3.1.1
+167 silly fetch manifest resolve-from@^4.0.0
+168 silly packumentCache full:https://registry.npmjs.org/resolve-from cache-miss
+169 silly fetch manifest parent-module@^1.0.0
+170 silly packumentCache full:https://registry.npmjs.org/parent-module cache-miss
+171 http fetch GET 200 https://registry.npmjs.org/parent-module 28ms (cache revalidated)
+172 silly packumentCache full:https://registry.npmjs.org/parent-module set size:18255 disposed:false
+173 http fetch GET 200 https://registry.npmjs.org/resolve-from 31ms (cache revalidated)
+174 silly packumentCache full:https://registry.npmjs.org/resolve-from set size:12911 disposed:false
+175 silly placeDep ROOT @humanwhocodes/object-schema@2.0.3 OK for: @humanwhocodes/config-array@0.13.0 want: ^2.0.3
+176 silly placeDep ROOT fast-json-stable-stringify@2.1.0 OK for: ajv@6.14.0 want: ^2.0.0
+177 silly placeDep ROOT json-schema-traverse@0.4.1 OK for: ajv@6.14.0 want: ^0.4.1
+178 silly placeDep ROOT uri-js@4.4.1 OK for: ajv@6.14.0 want: ^4.2.2
+179 silly fetch manifest punycode@^2.1.0
+180 silly packumentCache full:https://registry.npmjs.org/punycode cache-miss
+181 http fetch GET 200 https://registry.npmjs.org/punycode 27ms (cache revalidated)
+182 silly packumentCache full:https://registry.npmjs.org/punycode set size:61302 disposed:false
+183 silly placeDep ROOT esrecurse@4.3.0 OK for: eslint-scope@7.2.2 want: ^4.3.0
+184 silly placeDep ROOT acorn@8.16.0 OK for: espree@9.6.1 want: ^8.9.0
+185 silly placeDep ROOT acorn-jsx@5.3.2 OK for: espree@9.6.1 want: ^5.3.2
+186 silly placeDep ROOT flat-cache@3.2.0 OK for: file-entry-cache@6.0.1 want: ^3.0.4
+187 silly fetch manifest keyv@^4.5.3
+188 silly packumentCache full:https://registry.npmjs.org/keyv cache-miss
+189 silly fetch manifest rimraf@^3.0.2
+190 silly packumentCache full:https://registry.npmjs.org/rimraf cache-miss
+191 silly fetch manifest flatted@^3.2.9
+192 silly packumentCache full:https://registry.npmjs.org/flatted cache-miss
+193 http fetch GET 200 https://registry.npmjs.org/flatted 44ms (cache revalidated)
+194 silly packumentCache full:https://registry.npmjs.org/flatted set size:129359 disposed:false
+195 http fetch GET 200 https://registry.npmjs.org/keyv 47ms (cache revalidated)
+196 silly packumentCache full:https://registry.npmjs.org/keyv set size:213163 disposed:false
+197 http fetch GET 200 https://registry.npmjs.org/rimraf 49ms (cache miss)
+198 silly packumentCache full:https://registry.npmjs.org/rimraf set size:undefined disposed:false
+199 silly placeDep ROOT flatted@3.3.4 OK for: flat-cache@3.2.0 want: ^3.2.9
+200 silly placeDep ROOT keyv@4.5.4 OK for: flat-cache@3.2.0 want: ^4.5.3
+201 silly placeDep ROOT rimraf@3.0.2 OK for: flat-cache@3.2.0 want: ^3.0.2
+202 silly fetch manifest json-buffer@3.0.1
+203 silly packumentCache full:https://registry.npmjs.org/json-buffer cache-miss
+204 silly fetch manifest glob@^7.1.3
+205 silly packumentCache full:https://registry.npmjs.org/glob cache-miss
+206 http fetch GET 200 https://registry.npmjs.org/json-buffer 34ms (cache revalidated)
+207 silly packumentCache full:https://registry.npmjs.org/json-buffer set size:23474 disposed:false
+208 http fetch GET 200 https://registry.npmjs.org/glob 77ms (cache miss)
+209 silly packumentCache full:https://registry.npmjs.org/glob set size:undefined disposed:false
+210 silly placeDep node_modules/globals type-fest@0.20.2 OK for: globals@13.24.0 want: ^0.20.2
+211 silly placeDep ROOT parent-module@1.0.1 OK for: import-fresh@3.3.1 want: ^1.0.0
+212 silly placeDep ROOT resolve-from@4.0.0 OK for: import-fresh@3.3.1 want: ^4.0.0
+213 silly fetch manifest callsites@^3.0.0
+214 silly packumentCache full:https://registry.npmjs.org/callsites cache-miss
+215 http fetch GET 200 https://registry.npmjs.org/callsites 50ms (cache revalidated)
+216 silly packumentCache full:https://registry.npmjs.org/callsites set size:21349 disposed:false
+217 silly placeDep ROOT argparse@2.0.1 OK for: js-yaml@4.1.1 want: ^2.0.1
+218 silly placeDep ROOT json-buffer@3.0.1 OK for: keyv@4.5.4 want: 3.0.1
+219 silly placeDep ROOT callsites@3.1.0 OK for: parent-module@1.0.1 want: ^3.0.0
+220 silly placeDep ROOT glob@7.2.3 OK for: rimraf@3.0.2 want: ^7.1.3
+221 silly fetch manifest once@^1.3.0
+222 silly packumentCache full:https://registry.npmjs.org/once cache-miss
+223 silly fetch manifest inflight@^1.0.4
+224 silly packumentCache full:https://registry.npmjs.org/inflight cache-miss
+225 silly fetch manifest inherits@2
+226 silly packumentCache full:https://registry.npmjs.org/inherits cache-miss
+227 silly fetch manifest fs.realpath@^1.0.0
+228 silly packumentCache full:https://registry.npmjs.org/fs.realpath cache-miss
+229 silly fetch manifest path-is-absolute@^1.0.0
+230 silly packumentCache full:https://registry.npmjs.org/path-is-absolute cache-miss
+231 http fetch GET 200 https://registry.npmjs.org/once 39ms (cache miss)
+232 silly packumentCache full:https://registry.npmjs.org/once set size:undefined disposed:false
+233 http fetch GET 200 https://registry.npmjs.org/path-is-absolute 38ms (cache miss)
+234 silly packumentCache full:https://registry.npmjs.org/path-is-absolute set size:undefined disposed:false
+235 http fetch GET 200 https://registry.npmjs.org/inflight 41ms (cache miss)
+236 silly packumentCache full:https://registry.npmjs.org/inflight set size:undefined disposed:false
+237 http fetch GET 200 https://registry.npmjs.org/fs.realpath 40ms (cache miss)
+238 silly packumentCache full:https://registry.npmjs.org/fs.realpath set size:undefined disposed:false
+239 http fetch GET 200 https://registry.npmjs.org/inherits 41ms (cache miss)
+240 silly packumentCache full:https://registry.npmjs.org/inherits set size:undefined disposed:false
+241 silly placeDep ROOT fs.realpath@1.0.0 OK for: glob@7.2.3 want: ^1.0.0
+242 silly placeDep ROOT inflight@1.0.6 OK for: glob@7.2.3 want: ^1.0.4
+243 silly placeDep ROOT inherits@2.0.4 OK for: glob@7.2.3 want: 2
+244 silly placeDep ROOT once@1.4.0 OK for: glob@7.2.3 want: ^1.3.0
+245 silly placeDep ROOT path-is-absolute@1.0.1 OK for: glob@7.2.3 want: ^1.0.0
+246 silly fetch manifest wrappy@1
+247 silly packumentCache full:https://registry.npmjs.org/wrappy cache-miss
+248 silly fetch manifest wrappy@1
+249 silly packumentCache full:https://registry.npmjs.org/wrappy cache-miss
+250 http fetch GET 200 https://registry.npmjs.org/wrappy 32ms (cache miss)
+251 silly packumentCache full:https://registry.npmjs.org/wrappy set size:undefined disposed:false
+252 http fetch GET 200 https://registry.npmjs.org/wrappy 34ms (cache miss)
+253 silly packumentCache full:https://registry.npmjs.org/wrappy set size:undefined disposed:false
+254 silly placeDep ROOT wrappy@1.0.2 OK for: inflight@1.0.6 want: 1
+255 silly placeDep ROOT ansi-regex@5.0.1 OK for: strip-ansi@6.0.1 want: ^5.0.1
+256 silly placeDep ROOT punycode@2.3.1 OK for: uri-js@4.4.1 want: ^2.1.0
+257 warn EBADENGINE Unsupported engine {
+257 warn EBADENGINE   package: '@typescript-eslint/eslint-plugin@8.56.1',
+257 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+257 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+257 warn EBADENGINE }
+258 warn EBADENGINE Unsupported engine {
+258 warn EBADENGINE   package: '@typescript-eslint/parser@8.56.1',
+258 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+258 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+258 warn EBADENGINE }
+259 warn EBADENGINE Unsupported engine {
+259 warn EBADENGINE   package: '@typescript-eslint/project-service@8.56.1',
+259 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+259 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+259 warn EBADENGINE }
+260 warn EBADENGINE Unsupported engine {
+260 warn EBADENGINE   package: '@typescript-eslint/scope-manager@8.56.1',
+260 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+260 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+260 warn EBADENGINE }
+261 warn EBADENGINE Unsupported engine {
+261 warn EBADENGINE   package: '@typescript-eslint/tsconfig-utils@8.56.1',
+261 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+261 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+261 warn EBADENGINE }
+262 warn EBADENGINE Unsupported engine {
+262 warn EBADENGINE   package: '@typescript-eslint/type-utils@8.56.1',
+262 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+262 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+262 warn EBADENGINE }
+263 warn EBADENGINE Unsupported engine {
+263 warn EBADENGINE   package: '@typescript-eslint/types@8.56.1',
+263 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+263 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+263 warn EBADENGINE }
+264 warn EBADENGINE Unsupported engine {
+264 warn EBADENGINE   package: '@typescript-eslint/typescript-estree@8.56.1',
+264 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+264 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+264 warn EBADENGINE }
+265 warn EBADENGINE Unsupported engine {
+265 warn EBADENGINE   package: '@typescript-eslint/utils@8.56.1',
+265 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+265 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+265 warn EBADENGINE }
+266 warn EBADENGINE Unsupported engine {
+266 warn EBADENGINE   package: '@typescript-eslint/visitor-keys@8.56.1',
+266 warn EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+266 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+266 warn EBADENGINE }
+267 warn EBADENGINE Unsupported engine {
+267 warn EBADENGINE   package: 'eslint-visitor-keys@5.0.1',
+267 warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+267 warn EBADENGINE   current: { node: 'v20.5.0', npm: '10.8.1' }
+267 warn EBADENGINE }
+268 silly reify mark retired [
+268 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys'
+268 silly reify ]
+269 silly reify mark retired [
+269 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/config-array'
+269 silly reify ]
+270 silly reify mark retired [
+270 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/config-helpers'
+270 silly reify ]
+271 silly reify mark retired [
+271 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/core'
+271 silly reify ]
+272 silly reify mark retired [
+272 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/eslintrc'
+272 silly reify ]
+273 silly reify mark retired [
+273 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/js'
+273 silly reify ]
+274 silly reify mark retired [
+274 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/object-schema'
+274 silly reify ]
+275 silly reify mark retired [
+275 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/plugin-kit'
+275 silly reify ]
+276 silly reify mark retired [
+276 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/core'
+276 silly reify ]
+277 silly reify mark retired [
+277 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/node'
+277 silly reify ]
+278 silly reify mark retired [
+278 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanwhocodes/retry'
+278 silly reify ]
+279 silly reify mark retired [
+279 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/estree'
+279 silly reify ]
+280 silly reify mark retired [
+280 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/json-schema'
+280 silly reify ]
+281 silly reify mark retired [
+281 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint',
+281 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.bin/eslint'
+281 silly reify ]
+282 silly reify mark retired [
+282 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint-scope'
+282 silly reify ]
+283 silly reify mark retired [
+283 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint-visitor-keys'
+283 silly reify ]
+284 silly reify mark retired [
+284 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/espree'
+284 silly reify ]
+285 silly reify mark retired [
+285 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/file-entry-cache'
+285 silly reify ]
+286 silly reify mark retired [
+286 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/flat-cache'
+286 silly reify ]
+287 silly reify mark retired [
+287 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/globals'
+287 silly reify ]
+288 silly reify moves {
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint-community/eslint-utils/node_modules/.eslint-visitor-keys-Y0f34BFU',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/config-array': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.config-array-dDFJs4eL',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/config-helpers': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.config-helpers-ZClIpwCb',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/core': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.core-zEHsdDbG',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/eslintrc': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.eslintrc-3adBdtqR',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/js': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.js-gPQblwqJ',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/object-schema': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.object-schema-YQ1rIsMw',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/plugin-kit': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@eslint/.plugin-kit-q10wGRBc',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/core': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/.core-8U4UqYpK',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/node': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanfs/.node-riPOtBlY',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanwhocodes/retry': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@humanwhocodes/.retry-TZDVRMxg',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/estree': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/.estree-yZvJuJS0',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/json-schema': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@types/.json-schema-iIBwTxsN',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.eslint-5zD6GPrA',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.bin/eslint': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.bin/.eslint-Fbfd7FKB',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint-scope': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.eslint-scope-lUj0Ft4W',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/eslint-visitor-keys': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.eslint-visitor-keys-4gzHlDbZ',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/espree': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.espree-eENCLy1q',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/file-entry-cache': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.file-entry-cache-5nl5EwXp',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/flat-cache': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.flat-cache-6MbZLWQl',
+288 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/globals': '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/.globals-IRAk9Gxq'
+288 silly reify }
+289 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-wasm32-wasi
+290 silly reify mark deleted [
+290 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-wasm32-wasi'
+290 silly reify ]
+291 silly audit bulk request {
+291 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+291 silly audit   '@babel/runtime': [ '7.28.6' ],
+291 silly audit   '@emnapi/core': [ '1.8.1' ],
+291 silly audit   '@emnapi/runtime': [ '1.8.1' ],
+291 silly audit   '@emnapi/wasi-threads': [ '1.1.0' ],
+291 silly audit   '@eslint-community/eslint-utils': [ '4.9.1' ],
+291 silly audit   'eslint-visitor-keys': [ '5.0.1', '3.4.3' ],
+291 silly audit   '@eslint-community/regexpp': [ '4.12.2' ],
+291 silly audit   '@floating-ui/core': [ '1.7.5' ],
+291 silly audit   '@floating-ui/dom': [ '1.7.6' ],
+291 silly audit   '@floating-ui/react': [ '0.27.19' ],
+291 silly audit   '@floating-ui/react-dom': [ '2.1.8' ],
+291 silly audit   '@floating-ui/utils': [ '0.2.11' ],
+291 silly audit   '@hookform/resolvers': [ '5.2.2' ],
+291 silly audit   '@humanwhocodes/module-importer': [ '1.0.1' ],
+291 silly audit   '@img/colour': [ '1.1.0' ],
+291 silly audit   '@img/sharp-darwin-arm64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-darwin-x64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-libvips-darwin-arm64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-darwin-x64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-arm': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-arm64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-ppc64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-riscv64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-s390x': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linux-x64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linuxmusl-arm64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-libvips-linuxmusl-x64': [ '1.2.4' ],
+291 silly audit   '@img/sharp-linux-arm': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linux-arm64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linux-ppc64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linux-riscv64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linux-s390x': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linux-x64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linuxmusl-arm64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-linuxmusl-x64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-wasm32': [ '0.34.5' ],
+291 silly audit   '@img/sharp-win32-arm64': [ '0.34.5' ],
+291 silly audit   '@img/sharp-win32-ia32': [ '0.34.5' ],
+291 silly audit   '@img/sharp-win32-x64': [ '0.34.5' ],
+291 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+291 silly audit   '@jridgewell/remapping': [ '2.3.5' ],
+291 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+291 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+291 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+291 silly audit   '@mantine/core': [ '8.3.16' ],
+291 silly audit   '@mantine/hooks': [ '8.3.16' ],
+291 silly audit   '@napi-rs/wasm-runtime': [ '0.2.12' ],
+291 silly audit   '@next/env': [ '15.5.12' ],
+291 silly audit   '@next/eslint-plugin-next': [ '15.5.12' ],
+291 silly audit   '@next/swc-darwin-arm64': [ '15.5.12' ],
+291 silly audit   '@next/swc-darwin-x64': [ '15.5.12' ],
+291 silly audit   '@next/swc-linux-arm64-gnu': [ '15.5.12' ],
+291 silly audit   '@next/swc-linux-arm64-musl': [ '15.5.12' ],
+291 silly audit   '@next/swc-linux-x64-gnu': [ '15.5.12' ],
+291 silly audit   '@next/swc-linux-x64-musl': [ '15.5.12' ],
+291 silly audit   '@next/swc-win32-arm64-msvc': [ '15.5.12' ],
+291 silly audit   '@next/swc-win32-x64-msvc': [ '15.5.12' ],
+291 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+291 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+291 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+291 silly audit   '@nolyfill/is-core-module': [ '1.0.39' ],
+291 silly audit   '@rtsao/scc': [ '1.1.0' ],
+291 silly audit   '@rushstack/eslint-patch': [ '1.16.1' ],
+291 silly audit   '@standard-schema/utils': [ '0.3.0' ],
+291 silly audit   '@swc/helpers': [ '0.5.15' ],
+291 silly audit   '@tailwindcss/node': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-android-arm64': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-darwin-arm64': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-darwin-x64': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-freebsd-x64': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-linux-arm-gnueabihf': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-linux-arm64-gnu': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-linux-arm64-musl': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-linux-x64-gnu': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-linux-x64-musl': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-win32-arm64-msvc': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/oxide-win32-x64-msvc': [ '4.2.1' ],
+291 silly audit   '@tailwindcss/postcss': [ '4.2.1' ],
+291 silly audit   '@tanstack/query-core': [ '5.90.20' ],
+291 silly audit   '@tanstack/react-query': [ '5.90.21' ],
+291 silly audit   '@tybys/wasm-util': [ '0.10.1' ],
+291 silly audit   '@types/json5': [ '0.0.29' ],
+291 silly audit   '@types/node': [ '20.19.37' ],
+291 silly audit   '@types/react': [ '19.2.14' ],
+291 silly audit   '@types/react-dom': [ '19.2.3' ],
+291 silly audit   '@typescript-eslint/eslint-plugin': [ '8.56.1' ],
+291 silly audit   ignore: [ '7.0.5', '5.3.2' ],
+291 silly audit   '@typescript-eslint/parser': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/project-service': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/scope-manager': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/tsconfig-utils': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/type-utils': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/types': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/typescript-estree': [ '8.56.1' ],
+291 silly audit   'balanced-match': [ '4.0.4', '1.0.2' ],
+291 silly audit   'brace-expansion': [ '5.0.4', '1.1.12' ],
+291 silly audit   minimatch: [ '10.2.4', '3.1.5' ],
+291 silly audit   '@typescript-eslint/utils': [ '8.56.1' ],
+291 silly audit   '@typescript-eslint/visitor-keys': [ '8.56.1' ],
+291 silly audit   '@unrs/resolver-binding-android-arm-eabi': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-android-arm64': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-darwin-arm64': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-darwin-x64': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-freebsd-x64': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-arm-gnueabihf': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-arm-musleabihf': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-arm64-gnu': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-arm64-musl': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-ppc64-gnu': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-riscv64-gnu': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-riscv64-musl': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-s390x-gnu': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-x64-gnu': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-linux-x64-musl': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-wasm32-wasi': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-win32-arm64-msvc': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-win32-ia32-msvc': [ '1.11.1' ],
+291 silly audit   '@unrs/resolver-binding-win32-x64-msvc': [ '1.11.1' ],
+291 silly audit   'ansi-styles': [ '4.3.0' ],
+291 silly audit   'aria-query': [ '5.3.2' ],
+291 silly audit   'array-buffer-byte-length': [ '1.0.2' ],
+291 silly audit   'array-includes': [ '3.1.9' ],
+291 silly audit   'array.prototype.findlast': [ '1.2.5' ],
+291 silly audit   'array.prototype.findlastindex': [ '1.2.6' ],
+291 silly audit   'array.prototype.flat': [ '1.3.3' ],
+291 silly audit   'array.prototype.flatmap': [ '1.3.3' ],
+291 silly audit   'array.prototype.tosorted': [ '1.1.4' ],
+291 silly audit   'arraybuffer.prototype.slice': [ '1.0.4' ],
+291 silly audit   'ast-types-flow': [ '0.0.8' ],
+291 silly audit   'async-function': [ '1.0.0' ],
+291 silly audit   'available-typed-arrays': [ '1.0.7' ],
+291 silly audit   'axe-core': [ '4.11.1' ],
+291 silly audit   'axobject-query': [ '4.1.0' ],
+291 silly audit   braces: [ '3.0.3' ],
+291 silly audit   'call-bind': [ '1.0.8' ],
+291 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+291 silly audit   'call-bound': [ '1.0.4' ],
+291 silly audit   'caniuse-lite': [ '1.0.30001777' ],
+291 silly audit   chalk: [ '4.1.2' ],
+291 silly audit   'client-only': [ '0.0.1' ],
+291 silly audit   clsx: [ '2.1.1' ],
+291 silly audit   'color-convert': [ '2.0.1' ],
+291 silly audit   'color-name': [ '1.1.4' ],
+291 silly audit   'concat-map': [ '0.0.1' ],
+291 silly audit   'cross-spawn': [ '7.0.6' ],
+291 silly audit   csstype: [ '3.2.3' ],
+291 silly audit   'damerau-levenshtein': [ '1.0.8' ],
+291 silly audit   'data-view-buffer': [ '1.0.2' ],
+291 silly audit   'data-view-byte-length': [ '1.0.2' ],
+291 silly audit   'data-view-byte-offset': [ '1.0.1' ],
+291 silly audit   debug: [ '4.4.3', '3.2.7' ],
+291 silly audit   'deep-is': [ '0.1.4' ],
+291 silly audit   'define-data-property': [ '1.1.4' ],
+291 silly audit   'define-properties': [ '1.2.1' ],
+291 silly audit   'detect-libc': [ '2.1.2' ],
+291 silly audit   'detect-node-es': [ '1.1.0' ],
+291 silly audit   doctrine: [ '2.1.0', '3.0.0' ],
+291 silly audit   'dunder-proto': [ '1.0.1' ],
+291 silly audit   'emoji-regex': [ '9.2.2' ],
+291 silly audit   'enhanced-resolve': [ '5.20.0' ],
+291 silly audit   'es-abstract': [ '1.24.1' ],
+291 silly audit   'es-define-property': [ '1.0.1' ],
+291 silly audit   'es-errors': [ '1.3.0' ],
+291 silly audit   'es-iterator-helpers': [ '1.2.2' ],
+291 silly audit   'es-object-atoms': [ '1.1.1' ],
+291 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+291 silly audit   'es-shim-unscopables': [ '1.1.0' ],
+291 silly audit   'es-to-primitive': [ '1.3.0' ],
+291 silly audit   'escape-string-regexp': [ '4.0.0' ],
+291 silly audit   'eslint-config-next': [ '15.5.12' ],
+291 silly audit   'eslint-import-resolver-node': [ '0.3.9' ],
+291 silly audit   'eslint-import-resolver-typescript': [ '3.10.1' ],
+291 silly audit   'eslint-module-utils': [ '2.12.1' ],
+291 silly audit   'eslint-plugin-import': [ '2.32.0' ],
+291 silly audit   semver: [ '6.3.1', '7.7.4' ],
+291 silly audit   'eslint-plugin-jsx-a11y': [ '6.10.2' ],
+291 silly audit   'eslint-plugin-react': [ '7.37.5' ],
+291 silly audit   'eslint-plugin-react-hooks': [ '5.2.0' ],
+291 silly audit   resolve: [ '2.0.0-next.6', '1.22.11' ],
+291 silly audit   esquery: [ '1.7.0' ],
+291 silly audit   estraverse: [ '5.3.0' ],
+291 silly audit   esutils: [ '2.0.3' ],
+291 silly audit   'fast-glob': [ '3.3.1' ],
+291 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+291 silly audit   'fast-levenshtein': [ '2.0.6' ],
+291 silly audit   fastq: [ '1.20.1' ],
+291 silly audit   'fill-range': [ '7.1.1' ],
+291 silly audit   'find-up': [ '5.0.0' ],
+291 silly audit   'for-each': [ '0.3.5' ],
+291 silly audit   'function-bind': [ '1.1.2' ],
+291 silly audit   'function.prototype.name': [ '1.1.8' ],
+291 silly audit   'functions-have-names': [ '1.2.3' ],
+291 silly audit   'generator-function': [ '2.0.1' ],
+291 silly audit   'get-intrinsic': [ '1.3.0' ],
+291 silly audit   'get-nonce': [ '1.0.1' ],
+291 silly audit   'get-proto': [ '1.0.1' ],
+291 silly audit   'get-symbol-description': [ '1.1.0' ],
+291 silly audit   'get-tsconfig': [ '4.13.6' ],
+291 silly audit   globalthis: [ '1.0.4' ],
+291 silly audit   gopd: [ '1.2.0' ],
+291 silly audit   'graceful-fs': [ '4.2.11' ],
+291 silly audit   'has-bigints': [ '1.1.0' ],
+291 silly audit   'has-flag': [ '4.0.0' ],
+291 silly audit   'has-property-descriptors': [ '1.0.2' ],
+291 silly audit   'has-proto': [ '1.2.0' ],
+291 silly audit   'has-symbols': [ '1.1.0' ],
+291 silly audit   'has-tostringtag': [ '1.0.2' ],
+291 silly audit   hasown: [ '2.0.2' ],
+291 silly audit   imurmurhash: [ '0.1.4' ],
+291 silly audit   'internal-slot': [ '1.1.0' ],
+291 silly audit   'is-array-buffer': [ '3.0.5' ],
+291 silly audit   'is-async-function': [ '2.1.1' ],
+291 silly audit   'is-bigint': [ '1.1.0' ],
+291 silly audit   'is-boolean-object': [ '1.2.2' ],
+291 silly audit   'is-bun-module': [ '2.0.0' ],
+291 silly audit   'is-callable': [ '1.2.7' ],
+291 silly audit   'is-core-module': [ '2.16.1' ],
+291 silly audit   'is-data-view': [ '1.0.2' ],
+291 silly audit   'is-date-object': [ '1.1.0' ],
+291 silly audit   'is-extglob': [ '2.1.1' ],
+291 silly audit   'is-finalizationregistry': [ '1.1.1' ],
+291 silly audit   'is-generator-function': [ '1.1.2' ],
+291 silly audit   'is-glob': [ '4.0.3' ],
+291 silly audit   'is-map': [ '2.0.3' ],
+291 silly audit   'is-negative-zero': [ '2.0.3' ],
+291 silly audit   'is-number': [ '7.0.0' ],
+291 silly audit   'is-number-object': [ '1.1.1' ],
+291 silly audit   'is-regex': [ '1.2.1' ],
+291 silly audit   'is-set': [ '2.0.3' ],
+291 silly audit   'is-shared-array-buffer': [ '1.0.4' ],
+291 silly audit   'is-string': [ '1.1.1' ],
+291 silly audit   'is-symbol': [ '1.1.1' ],
+291 silly audit   'is-typed-array': [ '1.1.15' ],
+291 silly audit   'is-weakmap': [ '2.0.2' ],
+291 silly audit   'is-weakref': [ '1.1.1' ],
+291 silly audit   'is-weakset': [ '2.0.4' ],
+291 silly audit   isarray: [ '2.0.5' ],
+291 silly audit   isexe: [ '2.0.0' ],
+291 silly audit   'iterator.prototype': [ '1.1.5' ],
+291 silly audit   jiti: [ '2.6.1' ],
+291 silly audit   'js-tokens': [ '4.0.0' ],
+291 silly audit   'json-stable-stringify-without-jsonify': [ '1.0.1' ],
+291 silly audit   json5: [ '1.0.2' ],
+291 silly audit   'jsx-ast-utils': [ '3.3.5' ],
+291 silly audit   'language-subtag-registry': [ '0.3.23' ],
+291 silly audit   'language-tags': [ '1.0.9' ],
+291 silly audit   levn: [ '0.4.1' ],
+291 silly audit   lightningcss: [ '1.31.1' ],
+291 silly audit   'lightningcss-android-arm64': [ '1.31.1' ],
+291 silly audit   'lightningcss-darwin-arm64': [ '1.31.1' ],
+291 silly audit   'lightningcss-darwin-x64': [ '1.31.1' ],
+291 silly audit   'lightningcss-freebsd-x64': [ '1.31.1' ],
+291 silly audit   'lightningcss-linux-arm-gnueabihf': [ '1.31.1' ],
+291 silly audit   'lightningcss-linux-arm64-gnu': [ '1.31.1' ],
+291 silly audit   'lightningcss-linux-arm64-musl': [ '1.31.1' ],
+291 silly audit   'lightningcss-linux-x64-gnu': [ '1.31.1' ],
+291 silly audit   'lightningcss-linux-x64-musl': [ '1.31.1' ],
+291 silly audit   'lightningcss-win32-arm64-msvc': [ '1.31.1' ],
+291 silly audit   'lightningcss-win32-x64-msvc': [ '1.31.1' ],
+291 silly audit   'locate-path': [ '6.0.0' ],
+291 silly audit   'lodash.merge': [ '4.6.2' ],
+291 silly audit   'loose-envify': [ '1.4.0' ],
+291 silly audit   'lucide-react': [ '0.577.0' ],
+291 silly audit   'magic-string': [ '0.30.21' ],
+291 silly audit   'math-intrinsics': [ '1.1.0' ],
+291 silly audit   merge2: [ '1.4.1' ],
+291 silly audit   micromatch: [ '4.0.8' ],
+291 silly audit   minimist: [ '1.2.8' ],
+291 silly audit   ms: [ '2.1.3' ],
+291 silly audit   nanoid: [ '3.3.11' ],
+291 silly audit   'napi-postinstall': [ '0.3.4' ],
+291 silly audit   'natural-compare': [ '1.4.0' ],
+291 silly audit   next: [ '15.5.12' ],
+291 silly audit   postcss: [ '8.4.31', '8.5.8' ],
+291 silly audit   'node-exports-info': [ '1.6.0' ],
+291 silly audit   'object-assign': [ '4.1.1' ],
+291 silly audit   'object-inspect': [ '1.13.4' ],
+291 silly audit   'object-keys': [ '1.1.1' ],
+291 silly audit   'object.assign': [ '4.1.7' ],
+291 silly audit   'object.entries': [ '1.1.9' ],
+291 silly audit   'object.fromentries': [ '2.0.8' ],
+291 silly audit   'object.groupby': [ '1.0.3' ],
+291 silly audit   'object.values': [ '1.2.1' ],
+291 silly audit   optionator: [ '0.9.4' ],
+291 silly audit   'own-keys': [ '1.0.1' ],
+291 silly audit   'p-limit': [ '3.1.0' ],
+291 silly audit   'p-locate': [ '5.0.0' ],
+291 silly audit   'path-exists': [ '4.0.0' ],
+291 silly audit   'path-key': [ '3.1.1' ],
+291 silly audit   'path-parse': [ '1.0.7' ],
+291 silly audit   picocolors: [ '1.1.1' ],
+291 silly audit   picomatch: [ '2.3.1', '4.0.3' ],
+291 silly audit   'possible-typed-array-names': [ '1.1.0' ],
+291 silly audit   'prelude-ls': [ '1.2.1' ],
+291 silly audit   'prop-types': [ '15.8.1' ],
+291 silly audit   'queue-microtask': [ '1.2.3' ],
+291 silly audit   react: [ '19.2.3' ],
+291 silly audit   'react-dom': [ '19.2.3' ],
+291 silly audit   'react-hook-form': [ '7.71.2' ],
+291 silly audit   'react-is': [ '16.13.1' ],
+291 silly audit   'react-number-format': [ '5.4.4' ],
+291 silly audit   'react-remove-scroll': [ '2.7.2' ],
+291 silly audit   'react-remove-scroll-bar': [ '2.3.8' ],
+291 silly audit   'react-style-singleton': [ '2.2.3' ],
+291 silly audit   'react-textarea-autosize': [ '8.5.9' ],
+291 silly audit   'reflect.getprototypeof': [ '1.0.10' ],
+291 silly audit   'regexp.prototype.flags': [ '1.5.4' ],
+291 silly audit   'resolve-pkg-maps': [ '1.0.0' ],
+291 silly audit   reusify: [ '1.1.0' ],
+291 silly audit   'run-parallel': [ '1.2.0' ],
+291 silly audit   'safe-array-concat': [ '1.1.3' ],
+291 silly audit   'safe-push-apply': [ '1.0.0' ],
+291 silly audit   'safe-regex-test': [ '1.1.0' ],
+291 silly audit   scheduler: [ '0.27.0' ],
+291 silly audit   'set-function-length': [ '1.2.2' ],
+291 silly audit   'set-function-name': [ '2.0.2' ],
+291 silly audit   'set-proto': [ '1.0.0' ],
+291 silly audit   sharp: [ '0.34.5' ],
+291 silly audit   'shebang-command': [ '2.0.0' ],
+291 silly audit   'shebang-regex': [ '3.0.0' ],
+291 silly audit   'side-channel': [ '1.1.0' ],
+291 silly audit   'side-channel-list': [ '1.0.0' ],
+291 silly audit   'side-channel-map': [ '1.0.1' ],
+291 silly audit   'side-channel-weakmap': [ '1.0.2' ],
+291 silly audit   'source-map-js': [ '1.2.1' ],
+291 silly audit   'stable-hash': [ '0.0.5' ],
+291 silly audit   'stop-iteration-iterator': [ '1.1.0' ],
+291 silly audit   'string.prototype.includes': [ '2.0.1' ],
+291 silly audit   'string.prototype.matchall': [ '4.0.12' ],
+291 silly audit   'string.prototype.repeat': [ '1.0.0' ],
+291 silly audit   'string.prototype.trim': [ '1.2.10' ],
+291 silly audit   'string.prototype.trimend': [ '1.0.9' ],
+291 silly audit   'string.prototype.trimstart': [ '1.0.8' ],
+291 silly audit   'strip-bom': [ '3.0.0' ],
+291 silly audit   'styled-jsx': [ '5.1.6' ],
+291 silly audit   'supports-color': [ '7.2.0' ],
+291 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+291 silly audit   tabbable: [ '6.4.0' ],
+291 silly audit   tailwindcss: [ '4.2.1' ],
+291 silly audit   tapable: [ '2.3.0' ],
+291 silly audit   tinyglobby: [ '0.2.15' ],
+291 silly audit   fdir: [ '6.5.0' ],
+291 silly audit   'to-regex-range': [ '5.0.1' ],
+291 silly audit   'ts-api-utils': [ '2.4.0' ],
+291 silly audit   'tsconfig-paths': [ '3.15.0' ],
+291 silly audit   tslib: [ '2.8.1' ],
+291 silly audit   'type-check': [ '0.4.0' ],
+291 silly audit   'type-fest': [ '4.41.0', '0.20.2' ],
+291 silly audit   'typed-array-buffer': [ '1.0.3' ],
+291 silly audit   'typed-array-byte-length': [ '1.0.3' ],
+291 silly audit   'typed-array-byte-offset': [ '1.0.4' ],
+291 silly audit   'typed-array-length': [ '1.0.7' ],
+291 silly audit   typescript: [ '5.9.3' ],
+291 silly audit   'unbox-primitive': [ '1.1.0' ],
+291 silly audit   'undici-types': [ '6.21.0' ],
+291 silly audit   'unrs-resolver': [ '1.11.1' ],
+291 silly audit   'use-callback-ref': [ '1.3.3' ],
+291 silly audit   'use-composed-ref': [ '1.4.0' ],
+291 silly audit   'use-isomorphic-layout-effect': [ '1.2.1' ],
+291 silly audit   'use-latest': [ '1.3.0' ],
+291 silly audit   'use-sidecar': [ '1.1.3' ],
+291 silly audit   which: [ '2.0.2' ],
+291 silly audit   'which-boxed-primitive': [ '1.1.1' ],
+291 silly audit   'which-builtin-type': [ '1.2.1' ],
+291 silly audit   'which-collection': [ '1.0.2' ],
+291 silly audit   'which-typed-array': [ '1.1.20' ],
+291 silly audit   'word-wrap': [ '1.2.5' ],
+291 silly audit   'yocto-queue': [ '0.1.0' ],
+291 silly audit   zod: [ '4.3.6' ],
+291 silly audit   eslint: [ '8.57.1' ],
+291 silly audit   '@eslint/eslintrc': [ '2.1.4' ],
+291 silly audit   '@eslint/js': [ '8.57.1' ],
+291 silly audit   '@humanwhocodes/config-array': [ '0.13.0' ],
+291 silly audit   '@ungap/structured-clone': [ '1.3.0' ],
+291 silly audit   ajv: [ '6.14.0' ],
+291 silly audit   'eslint-scope': [ '7.2.2' ],
+291 silly audit   espree: [ '9.6.1' ],
+291 silly audit   'fast-deep-equal': [ '3.1.3' ],
+291 silly audit   'file-entry-cache': [ '6.0.1' ],
+291 silly audit   globals: [ '13.24.0' ],
+291 silly audit   graphemer: [ '1.4.0' ],
+291 silly audit   'is-path-inside': [ '3.0.3' ],
+291 silly audit   'js-yaml': [ '4.1.1' ],
+291 silly audit   'strip-ansi': [ '6.0.1' ],
+291 silly audit   'text-table': [ '0.2.0' ],
+291 silly audit   'import-fresh': [ '3.3.1' ],
+291 silly audit   'strip-json-comments': [ '3.1.1' ],
+291 silly audit   '@humanwhocodes/object-schema': [ '2.0.3' ],
+291 silly audit   'fast-json-stable-stringify': [ '2.1.0' ],
+291 silly audit   'json-schema-traverse': [ '0.4.1' ],
+291 silly audit   'uri-js': [ '4.4.1' ],
+291 silly audit   esrecurse: [ '4.3.0' ],
+291 silly audit   acorn: [ '8.16.0' ],
+291 silly audit   'acorn-jsx': [ '5.3.2' ],
+291 silly audit   'flat-cache': [ '3.2.0' ],
+291 silly audit   flatted: [ '3.3.4' ],
+291 silly audit   keyv: [ '4.5.4' ],
+291 silly audit   rimraf: [ '3.0.2' ],
+291 silly audit   'parent-module': [ '1.0.1' ],
+291 silly audit   'resolve-from': [ '4.0.0' ],
+291 silly audit   argparse: [ '2.0.1' ],
+291 silly audit   'json-buffer': [ '3.0.1' ],
+291 silly audit   callsites: [ '3.1.0' ],
+291 silly audit   glob: [ '7.2.3' ],
+291 silly audit   'fs.realpath': [ '1.0.0' ],
+291 silly audit   inflight: [ '1.0.6' ],
+291 silly audit   inherits: [ '2.0.4' ],
+291 silly audit   once: [ '1.4.0' ],
+291 silly audit   'path-is-absolute': [ '1.0.1' ],
+291 silly audit   wrappy: [ '1.0.2' ],
+291 silly audit   'ansi-regex': [ '5.0.1' ],
+291 silly audit   punycode: [ '2.3.1' ],
+291 silly audit   '@tailwindcss/oxide-wasm32-wasi': [ '4.2.1' ]
+291 silly audit }
+292 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-win32-x64-msvc
+293 silly reify mark deleted [
+293 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-win32-x64-msvc'
+293 silly reify ]
+294 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-win32-arm64-msvc
+295 silly reify mark deleted [
+295 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-win32-arm64-msvc'
+295 silly reify ]
+296 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-x64-musl
+297 silly reify mark deleted [
+297 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-x64-musl'
+297 silly reify ]
+298 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-x64-gnu
+299 silly reify mark deleted [
+299 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-x64-gnu'
+299 silly reify ]
+300 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm64-musl
+301 silly reify mark deleted [
+301 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm64-musl'
+301 silly reify ]
+302 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm64-gnu
+303 silly reify mark deleted [
+303 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm64-gnu'
+303 silly reify ]
+304 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm-gnueabihf
+305 silly reify mark deleted [
+305 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-linux-arm-gnueabihf'
+305 silly reify ]
+306 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-freebsd-x64
+307 silly reify mark deleted [
+307 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-freebsd-x64'
+307 silly reify ]
+308 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-darwin-x64
+309 silly reify mark deleted [
+309 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-darwin-x64'
+309 silly reify ]
+310 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-android-arm64
+311 silly reify mark deleted [
+311 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/lightningcss-android-arm64'
+311 silly reify ]
+312 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-x64-msvc
+313 silly reify mark deleted [
+313 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-x64-msvc'
+313 silly reify ]
+314 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-ia32-msvc
+315 silly reify mark deleted [
+315 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-ia32-msvc'
+315 silly reify ]
+316 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-arm64-msvc
+317 silly reify mark deleted [
+317 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-win32-arm64-msvc'
+317 silly reify ]
+318 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-wasm32-wasi
+319 silly reify mark deleted [
+319 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-wasm32-wasi'
+319 silly reify ]
+320 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-x64-musl
+321 silly reify mark deleted [
+321 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-x64-musl'
+321 silly reify ]
+322 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-x64-gnu
+323 silly reify mark deleted [
+323 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-x64-gnu'
+323 silly reify ]
+324 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-s390x-gnu
+325 silly reify mark deleted [
+325 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-s390x-gnu'
+325 silly reify ]
+326 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-riscv64-musl
+327 silly reify mark deleted [
+327 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-riscv64-musl'
+327 silly reify ]
+328 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-riscv64-gnu
+329 silly reify mark deleted [
+329 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-riscv64-gnu'
+329 silly reify ]
+330 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-ppc64-gnu
+331 silly reify mark deleted [
+331 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-ppc64-gnu'
+331 silly reify ]
+332 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm64-musl
+333 silly reify mark deleted [
+333 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm64-musl'
+333 silly reify ]
+334 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm64-gnu
+335 silly reify mark deleted [
+335 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm64-gnu'
+335 silly reify ]
+336 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm-musleabihf
+337 silly reify mark deleted [
+337 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm-musleabihf'
+337 silly reify ]
+338 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm-gnueabihf
+339 silly reify mark deleted [
+339 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-linux-arm-gnueabihf'
+339 silly reify ]
+340 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-freebsd-x64
+341 silly reify mark deleted [
+341 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-freebsd-x64'
+341 silly reify ]
+342 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-darwin-x64
+343 silly reify mark deleted [
+343 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-darwin-x64'
+343 silly reify ]
+344 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-android-arm64
+345 silly reify mark deleted [
+345 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-android-arm64'
+345 silly reify ]
+346 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-android-arm-eabi
+347 silly reify mark deleted [
+347 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@unrs/resolver-binding-android-arm-eabi'
+347 silly reify ]
+348 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-win32-x64-msvc
+349 silly reify mark deleted [
+349 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-win32-x64-msvc'
+349 silly reify ]
+350 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-win32-arm64-msvc
+351 silly reify mark deleted [
+351 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-win32-arm64-msvc'
+351 silly reify ]
+352 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-x64-musl
+353 silly reify mark deleted [
+353 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-x64-musl'
+353 silly reify ]
+354 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-x64-gnu
+355 silly reify mark deleted [
+355 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-x64-gnu'
+355 silly reify ]
+356 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm64-musl
+357 silly reify mark deleted [
+357 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm64-musl'
+357 silly reify ]
+358 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm64-gnu
+359 silly reify mark deleted [
+359 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm64-gnu'
+359 silly reify ]
+360 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf
+361 silly reify mark deleted [
+361 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf'
+361 silly reify ]
+362 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-freebsd-x64
+363 silly reify mark deleted [
+363 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-freebsd-x64'
+363 silly reify ]
+364 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-darwin-x64
+365 silly reify mark deleted [
+365 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-darwin-x64'
+365 silly reify ]
+366 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-android-arm64
+367 silly reify mark deleted [
+367 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@tailwindcss/oxide-android-arm64'
+367 silly reify ]
+368 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-win32-x64-msvc
+369 silly reify mark deleted [
+369 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-win32-x64-msvc'
+369 silly reify ]
+370 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-win32-arm64-msvc
+371 silly reify mark deleted [
+371 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-win32-arm64-msvc'
+371 silly reify ]
+372 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-x64-musl
+373 silly reify mark deleted [
+373 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-x64-musl'
+373 silly reify ]
+374 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-x64-gnu
+375 silly reify mark deleted [
+375 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-x64-gnu'
+375 silly reify ]
+376 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-arm64-musl
+377 silly reify mark deleted [
+377 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-arm64-musl'
+377 silly reify ]
+378 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-arm64-gnu
+379 silly reify mark deleted [
+379 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-linux-arm64-gnu'
+379 silly reify ]
+380 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-darwin-x64
+381 silly reify mark deleted [
+381 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@next/swc-darwin-x64'
+381 silly reify ]
+382 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-x64
+383 silly reify mark deleted [
+383 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-x64'
+383 silly reify ]
+384 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-ia32
+385 silly reify mark deleted [
+385 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-ia32'
+385 silly reify ]
+386 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-arm64
+387 silly reify mark deleted [
+387 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-win32-arm64'
+387 silly reify ]
+388 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-wasm32
+389 silly reify mark deleted [
+389 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-wasm32'
+389 silly reify ]
+390 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linuxmusl-x64
+391 silly reify mark deleted [
+391 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linuxmusl-x64'
+391 silly reify ]
+392 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linuxmusl-arm64
+393 silly reify mark deleted [
+393 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linuxmusl-arm64'
+393 silly reify ]
+394 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-x64
+395 silly reify mark deleted [
+395 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-x64'
+395 silly reify ]
+396 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-s390x
+397 silly reify mark deleted [
+397 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-s390x'
+397 silly reify ]
+398 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-riscv64
+399 silly reify mark deleted [
+399 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-riscv64'
+399 silly reify ]
+400 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-ppc64
+401 silly reify mark deleted [
+401 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-ppc64'
+401 silly reify ]
+402 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-arm64
+403 silly reify mark deleted [
+403 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-arm64'
+403 silly reify ]
+404 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-arm
+405 silly reify mark deleted [
+405 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-linux-arm'
+405 silly reify ]
+406 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linuxmusl-x64
+407 silly reify mark deleted [
+407 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linuxmusl-x64'
+407 silly reify ]
+408 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linuxmusl-arm64
+409 silly reify mark deleted [
+409 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linuxmusl-arm64'
+409 silly reify ]
+410 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-x64
+411 silly reify mark deleted [
+411 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-x64'
+411 silly reify ]
+412 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-s390x
+413 silly reify mark deleted [
+413 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-s390x'
+413 silly reify ]
+414 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-riscv64
+415 silly reify mark deleted [
+415 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-riscv64'
+415 silly reify ]
+416 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-ppc64
+417 silly reify mark deleted [
+417 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-ppc64'
+417 silly reify ]
+418 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-arm64
+419 silly reify mark deleted [
+419 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-arm64'
+419 silly reify ]
+420 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-arm
+421 silly reify mark deleted [
+421 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-linux-arm'
+421 silly reify ]
+422 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-darwin-x64
+423 silly reify mark deleted [
+423 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-libvips-darwin-x64'
+423 silly reify ]
+424 verbose reify failed optional dependency /Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-darwin-x64
+425 silly reify mark deleted [
+425 silly reify   '/Users/alexia.balionis/projects/pessoal/safira-ui/node_modules/@img/sharp-darwin-x64'
+425 silly reify ]
+426 silly tarball no local data for path-is-absolute@https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz. Extracting by manifest.
+427 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz. Extracting by manifest.
+428 silly tarball no local data for once@https://registry.npmjs.org/once/-/once-1.4.0.tgz. Extracting by manifest.
+429 silly tarball no local data for wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz. Extracting by manifest.
+430 silly tarball no local data for inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz. Extracting by manifest.
+431 silly tarball no local data for inflight@https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz. Extracting by manifest.
+432 silly tarball no local data for fs.realpath@https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz. Extracting by manifest.
+433 silly tarball no local data for glob@https://registry.npmjs.org/glob/-/glob-7.2.3.tgz. Extracting by manifest.
+434 silly tarball no local data for rimraf@https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz. Extracting by manifest.
+435 silly tarball no local data for @humanwhocodes/object-schema@https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz. Extracting by manifest.
+436 silly tarball no local data for strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz. Extracting by manifest.
+437 silly tarball no local data for text-table@https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz. Extracting by manifest.
+438 silly tarball no local data for is-path-inside@https://registry.npmjs.org/is-path-inside/-/is-path-inside-3.0.3.tgz. Extracting by manifest.
+439 silly tarball no local data for globals@https://registry.npmjs.org/globals/-/globals-13.24.0.tgz. Extracting by manifest.
+440 silly tarball no local data for graphemer@https://registry.npmjs.org/graphemer/-/graphemer-1.4.0.tgz. Extracting by manifest.
+441 silly tarball no local data for @ungap/structured-clone@https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.3.0.tgz. Extracting by manifest.
+442 silly tarball no local data for file-entry-cache@https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-6.0.1.tgz. Extracting by manifest.
+443 silly tarball no local data for flat-cache@https://registry.npmjs.org/flat-cache/-/flat-cache-3.2.0.tgz. Extracting by manifest.
+444 silly tarball no local data for @humanwhocodes/config-array@https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.13.0.tgz. Extracting by manifest.
+445 silly tarball no local data for eslint-scope@https://registry.npmjs.org/eslint-scope/-/eslint-scope-7.2.2.tgz. Extracting by manifest.
+446 silly tarball no local data for espree@https://registry.npmjs.org/espree/-/espree-9.6.1.tgz. Extracting by manifest.
+447 silly tarball no local data for @eslint/js@https://registry.npmjs.org/@eslint/js/-/js-8.57.1.tgz. Extracting by manifest.
+448 silly tarball no local data for eslint@https://registry.npmjs.org/eslint/-/eslint-8.57.1.tgz. Extracting by manifest.
+449 silly tarball no local data for @eslint/eslintrc@https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-2.1.4.tgz. Extracting by manifest.
+450 silly tarball no local data for type-fest@https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz. Extracting by manifest.
+451 silly tarball no local data for doctrine@https://registry.npmjs.org/doctrine/-/doctrine-3.0.0.tgz. Extracting by manifest.
+452 http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 73ms (cache miss)
+453 http fetch GET 200 https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz 73ms (cache miss)
+454 warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+455 http fetch GET 200 https://registry.npmjs.org/once/-/once-1.4.0.tgz 76ms (cache miss)
+456 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 76ms (cache miss)
+457 http fetch GET 200 https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz 77ms (cache miss)
+458 http fetch GET 200 https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 75ms (cache miss)
+459 http fetch GET 200 https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-6.0.1.tgz 100ms (cache miss)
+460 http fetch GET 200 https://registry.npmjs.org/graphemer/-/graphemer-1.4.0.tgz 108ms (cache miss)
+461 http fetch GET 200 https://registry.npmjs.org/flat-cache/-/flat-cache-3.2.0.tgz 107ms (cache miss)
+462 http fetch GET 200 https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.3.0.tgz 110ms (cache miss)
+463 http fetch GET 200 https://registry.npmjs.org/eslint-scope/-/eslint-scope-7.2.2.tgz 114ms (cache miss)
+464 http fetch GET 200 https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.13.0.tgz 115ms (cache miss)
+465 warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+466 http fetch GET 200 https://registry.npmjs.org/@eslint/js/-/js-8.57.1.tgz 202ms (cache miss)
+467 http fetch GET 200 https://registry.npmjs.org/espree/-/espree-9.6.1.tgz 207ms (cache miss)
+468 http fetch GET 200 https://registry.npmjs.org/doctrine/-/doctrine-3.0.0.tgz 202ms (cache miss)
+469 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 240ms
+470 silly audit report {}
+471 http fetch GET 200 https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz 216ms (cache miss)
+472 http fetch GET 200 https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-2.1.4.tgz 236ms (cache miss)
+473 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 366ms (cache miss)
+474 http fetch GET 200 https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz 372ms (cache miss)
+475 warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+476 http fetch GET 200 https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz 375ms (cache miss)
+477 warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+478 http fetch GET 200 https://registry.npmjs.org/glob/-/glob-7.2.3.tgz 379ms (cache miss)
+479 warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+480 http fetch GET 200 https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz 411ms (cache miss)
+481 http fetch GET 200 https://registry.npmjs.org/is-path-inside/-/is-path-inside-3.0.3.tgz 424ms (cache miss)
+482 http fetch GET 200 https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz 426ms (cache miss)
+483 http fetch GET 200 https://registry.npmjs.org/globals/-/globals-13.24.0.tgz 431ms (cache miss)
+484 http fetch GET 200 https://registry.npmjs.org/eslint/-/eslint-8.57.1.tgz 470ms (cache miss)
+485 warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+486 silly ADD node_modules/ansi-regex
+487 silly ADD node_modules/wrappy
+488 silly ADD node_modules/path-is-absolute
+489 silly ADD node_modules/once
+490 silly ADD node_modules/inherits
+491 silly ADD node_modules/inflight
+492 silly ADD node_modules/fs.realpath
+493 silly ADD node_modules/glob
+494 silly ADD node_modules/rimraf
+495 silly ADD node_modules/@humanwhocodes/object-schema
+496 silly ADD node_modules/text-table
+497 silly ADD node_modules/strip-ansi
+498 silly ADD node_modules/is-path-inside
+499 silly ADD node_modules/graphemer
+500 silly ADD node_modules/@ungap/structured-clone
+501 silly ADD node_modules/@humanwhocodes/config-array
+502 silly ADD
+503 silly ADD
+504 silly ADD
+505 silly ADD
+506 silly ADD
+507 silly ADD
+508 silly ADD
+509 silly ADD
+510 silly ADD
+511 silly ADD
+512 silly ADD
+513 silly ADD
+514 silly ADD
+515 silly ADD
+516 silly ADD
+517 silly ADD
+518 silly ADD
+519 silly ADD
+520 silly ADD
+521 silly ADD
+522 silly ADD
+523 silly ADD
+524 silly ADD
+525 silly ADD
+526 silly ADD
+527 silly ADD
+528 silly ADD
+529 silly ADD
+530 silly ADD
+531 silly ADD
+532 silly ADD
+533 silly ADD
+534 silly ADD
+535 silly ADD
+536 silly ADD
+537 silly ADD
+538 silly ADD
+539 silly ADD
+540 silly ADD
+541 silly ADD
+542 silly ADD
+543 silly ADD
+544 silly ADD
+545 silly ADD
+546 silly ADD
+547 silly ADD
+548 silly ADD
+549 silly ADD
+550 silly ADD
+551 silly ADD
+552 silly ADD
+553 silly ADD
+554 silly ADD
+555 silly ADD
+556 silly ADD
+557 silly ADD
+558 silly ADD
+559 silly ADD
+560 silly ADD
+561 silly ADD
+562 silly ADD
+563 silly ADD
+564 silly ADD
+565 silly ADD
+566 silly ADD
+567 silly ADD
+568 silly ADD
+569 silly ADD
+570 silly CHANGE node_modules/globals
+571 silly ADD node_modules/globals/node_modules/type-fest
+572 silly CHANGE node_modules/flat-cache
+573 silly CHANGE node_modules/file-entry-cache
+574 silly CHANGE node_modules/espree
+575 silly CHANGE node_modules/eslint-visitor-keys
+576 silly CHANGE node_modules/eslint-scope
+577 silly CHANGE node_modules/eslint
+578 silly ADD node_modules/eslint/node_modules/doctrine
+579 silly REMOVE node_modules/@types/json-schema
+580 silly REMOVE node_modules/@types/estree
+581 silly REMOVE node_modules/@humanwhocodes/retry
+582 silly REMOVE node_modules/@humanfs/node
+583 silly REMOVE node_modules/@humanfs/core
+584 silly REMOVE node_modules/@eslint/plugin-kit
+585 silly REMOVE node_modules/@eslint/object-schema
+586 silly CHANGE node_modules/@eslint/js
+587 silly CHANGE node_modules/@eslint/eslintrc
+588 silly REMOVE node_modules/@eslint/core
+589 silly REMOVE node_modules/@eslint/config-helpers
+590 silly REMOVE node_modules/@eslint/config-array
+591 silly REMOVE node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys
+592 verbose cwd /Users/alexia.balionis/projects/pessoal/safira-ui
+593 verbose os Darwin 24.6.0
+594 verbose node v20.5.0
+595 verbose npm  v10.8.1
+596 verbose exit 0
+597 info ok
