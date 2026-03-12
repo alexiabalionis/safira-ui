@@ -10,7 +10,7 @@ import {
   NetworkVolumeFilter,
 } from "@/services/dashboard-constants";
 import { filterAndRankNetworks } from "@/services/dashboard-utils";
-import type { DashboardOverview } from "@/services/types";
+import type { DashboardOverview } from "@/types/core.types";
 
 type RedeSummaryRow = DashboardOverview["redes"][number];
 

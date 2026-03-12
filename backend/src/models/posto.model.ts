@@ -1,18 +1,23 @@
 import mongoose, { Schema, model } from "mongoose";
 
+import {
+  AUTOMACAO_ETAPA_VALUES,
+  AUTOMACAO_TIPO_VALUES,
+} from "../domain/automation";
+
 const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
 
 const automacaoSchema = new Schema(
   {
     tipo: {
       type: String,
-      enum: ["AUTOMAÇÃO", "SEMI-AUTOMAÇÃO", "MANUAL"],
+      enum: AUTOMACAO_TIPO_VALUES,
       required: false,
       default: null,
     },
     etapa: {
       type: String,
-      enum: ["AGUARDANDO", "EM_ANDAMENTO", "FINALIZADO"],
+      enum: AUTOMACAO_ETAPA_VALUES,
       required: false,
       trim: true,
       default: null,

@@ -1,7 +1,18 @@
-import { Badge, Group, Select, Stack, Text, TextInput } from "@mantine/core";
+import {
+  Box,
+  Button,
+  FloatingIndicator,
+  Group,
+  Stack,
+  Text,
+  TextInput,
+} from "@mantine/core";
+import { useMemo, useRef } from "react";
+import type { ReactNode } from "react";
 
 import { ErpSelect } from "@/components/ui/erp-select";
-import { getStatusPalette } from "@/lib/status-colors";
+
+type Option = string | { value: string; label: string };
 
 type Props = {
   search: string;
@@ -18,22 +29,89 @@ type Props = {
   onEndDateChange?: (value: string) => void;
   phase?: string | null;
   onPhaseChange?: (value: string | null) => void;
-  phaseOptions?: string[];
+  phaseOptions?: Option[];
   phaseLabel?: string;
   erp?: string | null;
   onErpChange?: (value: string | null) => void;
-  erpOptions?: string[];
+  erpOptions?: Option[];
   erpLabel?: string;
   network?: string | null;
   onNetworkChange?: (value: string | null) => void;
-  networkOptions?: string[];
+  networkOptions?: Option[];
   networkLabel?: string;
   status?: string | null;
   onStatusChange?: (value: string | null) => void;
-  statusOptions?: string[];
+  statusOptions?: Option[];
   statusLabel?: string;
-  actions?: React.ReactNode;
+  actions?: ReactNode;
 };
+
+type SegmentOption = {
+  value: string;
+  label: string;
+};
+
+function toSegmentOptions(options: Option[]) {
+  return options.map((option) =>
+    typeof option === "string" ? { value: option, label: option } : option,
+  );
+}
+
+function SegmentedFilter({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string | null | undefined;
+  options: SegmentOption[];
+  onChange: (value: string | null) => void;
+}) {
+  const allOptions = useMemo<SegmentOption[]>(
+    () => [{ value: "ALL", label: "Todos" }, ...options],
+    [options],
+  );
+
+  const selectedValue = value ?? "ALL";
+  const refs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  return (
+    <Box>
+      <Text size="xs" c="#7A7A7A" mb={6}>
+        {label}
+      </Text>
+      <Box
+        pos="relative"
+        className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1"
+      >
+        {allOptions.map((option) => (
+          <Button
+            key={option.value}
+            ref={(node) => {
+              refs.current[option.value] = node;
+            }}
+            onClick={() =>
+              onChange(option.value === "ALL" ? null : option.value)
+            }
+            variant="subtle"
+            color={selectedValue === option.value ? "white" : "gray"}
+            size="compact-sm"
+            className="relative z-1 rounded-md px-3 py-1.5 text-xs font-medium text-gray-700"
+          >
+            {option.label}
+          </Button>
+        ))}
+
+        <FloatingIndicator
+          target={refs.current[selectedValue]}
+          parent={refs.current.ALL?.parentElement ?? null}
+          className="rounded-md border border-emerald-200 bg-emerald-700 text-white shadow-sm"
+        />
+      </Box>
+    </Box>
+  );
+}
 
 export function TableFilters({
   search,
@@ -66,149 +144,104 @@ export function TableFilters({
   statusLabel,
   actions,
 }: Props) {
+  const phaseSegmentOptions = useMemo(
+    () => toSegmentOptions(phaseOptions ?? []),
+    [phaseOptions],
+  );
+
+  const statusSegmentOptions = useMemo(
+    () => toSegmentOptions(statusOptions ?? []),
+    [statusOptions],
+  );
+
   return (
     <Stack gap={10} mb={18}>
-      <Group gap={8} align="end" wrap="wrap">
-        <TextInput
-          size="xs"
-          label={searchLabel ?? "Nome / CNPJ"}
-          placeholder="Buscar"
-          value={search}
-          onChange={(event) => onSearchChange(event.currentTarget.value)}
-          w={220}
-        />
-
-        {onDateChange ? (
+      <Box className="overflow-x-auto">
+        <Group gap={8} align="end" wrap="nowrap" className="min-w-max">
           <TextInput
             size="xs"
-            label={dateLabel ?? "Data"}
-            type="date"
-            value={date ?? ""}
-            onChange={(event) => onDateChange(event.currentTarget.value)}
-            w={170}
+            label={searchLabel ?? "Nome / CNPJ"}
+            placeholder="Buscar"
+            value={search}
+            onChange={(event) => onSearchChange(event.currentTarget.value)}
+            w={220}
           />
-        ) : null}
 
-        {onStartDateChange && !onDateChange ? (
-          <TextInput
-            size="xs"
-            label={startDateLabel ?? "Data inicial"}
-            type="date"
-            value={startDate ?? ""}
-            onChange={(event) => onStartDateChange(event.currentTarget.value)}
-            w={150}
-          />
-        ) : null}
+          {onDateChange ? (
+            <TextInput
+              size="xs"
+              label={dateLabel ?? "Data"}
+              type="date"
+              value={date ?? ""}
+              onChange={(event) => onDateChange(event.currentTarget.value)}
+              w={170}
+            />
+          ) : null}
 
-        {onEndDateChange && !onDateChange ? (
-          <TextInput
-            size="xs"
-            label={endDateLabel ?? "Data final"}
-            type="date"
-            value={endDate ?? ""}
-            onChange={(event) => onEndDateChange(event.currentTarget.value)}
-            w={150}
-          />
-        ) : null}
+          {onStartDateChange && !onDateChange ? (
+            <TextInput
+              size="xs"
+              label={startDateLabel ?? "Data inicial"}
+              type="date"
+              value={startDate ?? ""}
+              onChange={(event) => onStartDateChange(event.currentTarget.value)}
+              w={150}
+            />
+          ) : null}
 
-        {onErpChange ? (
-          <ErpSelect
-            label={erpLabel ?? "ERP"}
-            value={erp ?? null}
-            onChange={onErpChange}
-            options={erpOptions ?? []}
-            w={140}
-          />
-        ) : null}
+          {onEndDateChange && !onDateChange ? (
+            <TextInput
+              size="xs"
+              label={endDateLabel ?? "Data final"}
+              type="date"
+              value={endDate ?? ""}
+              onChange={(event) => onEndDateChange(event.currentTarget.value)}
+              w={150}
+            />
+          ) : null}
 
-        {onNetworkChange ? (
-          <Select
-            size="xs"
-            label={networkLabel ?? "Rede"}
-            value={network}
-            onChange={onNetworkChange}
-            data={networkOptions ?? []}
-            clearable
-            w={140}
-          />
-        ) : null}
+          {onErpChange ? (
+            <ErpSelect
+              label={erpLabel ?? "ERP"}
+              value={erp ?? null}
+              onChange={onErpChange}
+              options={erpOptions ?? []}
+              w={140}
+            />
+          ) : null}
 
-        {actions ?? null}
-      </Group>
+          {onNetworkChange ? (
+            <ErpSelect
+              label={networkLabel ?? "Rede"}
+              value={network ?? null}
+              onChange={onNetworkChange}
+              options={networkOptions ?? []}
+              size="xs"
+              w={140}
+            />
+          ) : null}
+          {actions ?? null}
+        </Group>
+        <Group>
+          {onPhaseChange && phaseSegmentOptions.length ? (
+            <SegmentedFilter
+              label={phaseLabel ?? "Fase"}
+              value={phase}
+              options={phaseSegmentOptions}
+              onChange={onPhaseChange}
+            />
+          ) : null}
 
-      <Group gap={12} align="start" wrap="wrap">
-        {onPhaseChange && phaseOptions?.length ? (
-          <Stack gap={4}>
-            <Text size="xs" c="#7A7A7A">
-              {phaseLabel ?? "Fase"}
-            </Text>
-            <Group gap={6} wrap="wrap">
-              <Badge
-                variant={!phase ? "filled" : "light"}
-                color={!phase ? "safira" : "gray"}
-                style={{ cursor: "pointer" }}
-                onClick={() => onPhaseChange(null)}
-              >
-                Todos
-              </Badge>
-              {phaseOptions.map((option) => (
-                <Badge
-                  key={option}
-                  variant={phase === option ? "filled" : "light"}
-                  color={phase === option ? "safira" : "gray"}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => onPhaseChange(option)}
-                >
-                  {option}
-                </Badge>
-              ))}
-            </Group>
-          </Stack>
-        ) : null}
-
-        {onStatusChange && statusOptions?.length ? (
-          <Stack gap={4}>
-            <Text size="xs" c="#7A7A7A">
-              {statusLabel ?? "Status"}
-            </Text>
-            <Group gap={6} wrap="wrap">
-              <Badge
-                variant={!status ? "filled" : "light"}
-                color={!status ? "safira" : "gray"}
-                style={{ cursor: "pointer" }}
-                onClick={() => onStatusChange(null)}
-              >
-                Todos
-              </Badge>
-              {statusOptions.map((option) => {
-                const palette = getStatusPalette(option);
-                return (
-                  <Badge
-                    key={option}
-                    variant={status === option ? "filled" : "light"}
-                    color={status === option ? undefined : "gray"}
-                    styles={
-                      status === option
-                        ? {
-                            root: {
-                              backgroundColor: palette.solid,
-                              color: "#FFFFFF",
-                              borderColor: palette.solid,
-                            },
-                          }
-                        : undefined
-                    }
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onStatusChange(option)}
-                  >
-                    {option}
-                  </Badge>
-                );
-              })}
-            </Group>
-          </Stack>
-        ) : null}
-      </Group>
+          {onStatusChange && statusSegmentOptions.length ? (
+            <SegmentedFilter
+              label={statusLabel ?? "Status"}
+              value={status}
+              options={statusSegmentOptions}
+              onChange={onStatusChange}
+            />
+          ) : null}
+        </Group>
+      </Box>
     </Stack>
   );
 }

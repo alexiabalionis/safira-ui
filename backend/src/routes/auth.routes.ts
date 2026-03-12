@@ -17,11 +17,7 @@ import { asyncHandler } from "../utils/async-handler";
 export const authRouter = Router();
 
 authRouter.post("/login", asyncHandler(login));
-authRouter.post(
-  "/logout",
-  authenticate({ allowForcePasswordChange: true }),
-  asyncHandler(logout),
-);
+authRouter.post("/logout", asyncHandler(logout));
 authRouter.get(
   "/me",
   authenticate({ allowForcePasswordChange: true }),

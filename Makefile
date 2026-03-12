@@ -5,11 +5,18 @@ COMPOSE ?= docker compose
 NPM ?= npm
 FRONTEND_DIR ?= .
 BACKEND_DIR ?= backend
+ENV ?= development
+ROOT_ENV_FILE ?= config/env/$(ENV).env
+BACKEND_ENV_FILE ?= backend/config/env/$(ENV).env
 SEED_DIR ?= docker/mongo/seed
 SEED_DB_NAME ?= safira
 MONGO_SEED_SOURCE_URI ?= mongodb://host.docker.internal:27017/$(SEED_DB_NAME)
 
-.PHONY: help install install-frontend install-backend dev-frontend dev-backend build build-frontend build-backend lint test-backend docker-build docker-up docker-down docker-restart docker-ps docker-logs docker-rebuild docker-clean health seed-export seed-import
+.PHONY: help install install-frontend install-backend dev-frontend dev-backend build build-frontend build-backend lint test-backend docker-build docker-up docker-down docker-restart docker-ps docker-logs docker-rebuild docker-clean health seed-export seed-import check-env-files
+
+check-env-files: ## Validate environment files for selected ENV=<development|production>
+	@test -f "$(ROOT_ENV_FILE)" || (echo "Arquivo nao encontrado: $(ROOT_ENV_FILE)" && exit 1)
+	@test -f "$(BACKEND_ENV_FILE)" || (echo "Arquivo nao encontrado: $(BACKEND_ENV_FILE)" && exit 1)
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*##"; printf "\nSafira - Make Commands\n\n"} /^[a-zA-Z0-9_.-]+:.*##/ {printf "  %-18s %s\n", $$1, $$2} END {printf "\n"}' $(MAKEFILE_LIST)
@@ -22,19 +29,19 @@ install-frontend: ## Install frontend dependencies
 install-backend: ## Install backend dependencies
 	@cd $(BACKEND_DIR) && $(NPM) ci
 
-dev-frontend: ## Run frontend in development mode
-	@cd $(FRONTEND_DIR) && $(NPM) run dev
+dev-frontend: check-env-files ## Run frontend in development mode for selected ENV
+	@set -a; source "$(ROOT_ENV_FILE)"; set +a; cd $(FRONTEND_DIR) && NODE_ENV=$(ENV) APP_ENV=$(ENV) $(NPM) run dev
 
-dev-backend: ## Run backend in development mode
-	@cd $(BACKEND_DIR) && $(NPM) run dev
+dev-backend: check-env-files ## Run backend in development mode for selected ENV
+	@cd $(BACKEND_DIR) && APP_ENV=$(ENV) NODE_ENV=$(ENV) $(NPM) run dev
 
 build: build-frontend build-backend ## Build frontend and backend
 
-build-frontend: ## Build frontend
-	@cd $(FRONTEND_DIR) && $(NPM) run build
+build-frontend: check-env-files ## Build frontend for selected ENV
+	@set -a; cd $(FRONTEND_DIR) && $(NPM) run build
 
-build-backend: ## Build backend
-	@cd $(BACKEND_DIR) && $(NPM) run build
+build-backend: check-env-files ## Build backend for selected ENV
+	@cd $(BACKEND_DIR) && APP_ENV=$(ENV) NODE_ENV=$(ENV) $(NPM) run build
 
 lint: ## Run frontend lint
 	@cd $(FRONTEND_DIR) && $(NPM) run lint
@@ -42,31 +49,31 @@ lint: ## Run frontend lint
 test-backend: ## Run backend tests
 	@cd $(BACKEND_DIR) && $(NPM) run test
 
-docker-build: ## Build Docker images
-	@$(COMPOSE) build
+docker-build: check-env-files ## Build Docker images for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) build
 
-docker-up: ## Start containers in detached mode
-	@$(COMPOSE) up -d
+docker-up: check-env-files ## Start containers in detached mode for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) up -d
 
-docker-down: ## Stop and remove containers
-	@$(COMPOSE) down
+docker-down: check-env-files ## Stop and remove containers for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) down
 
-docker-restart: ## Restart all containers
-	@$(COMPOSE) restart
+docker-restart: check-env-files ## Restart all containers for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) restart
 
-docker-ps: ## Show containers status
-	@$(COMPOSE) ps -a
+docker-ps: check-env-files ## Show containers status for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) ps -a
 
-docker-logs: ## Tail logs from all services
-	@$(COMPOSE) logs -f --tail=200
+docker-logs: check-env-files ## Tail logs from all services for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) logs -f --tail=200
 
-docker-rebuild: ## Rebuild containers without cache and restart
-	@$(COMPOSE) down
-	@$(COMPOSE) build --no-cache
-	@$(COMPOSE) up -d
+docker-rebuild: check-env-files ## Rebuild containers without cache and restart for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) down
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) build --no-cache
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) up -d
 
-docker-clean: ## Remove containers, networks, volumes and images created by compose
-	@$(COMPOSE) down --volumes --rmi local
+docker-clean: check-env-files ## Remove containers, networks, volumes and images created by compose for selected ENV
+	@APP_ENV=$(ENV) BACKEND_ENV_FILE=./$(BACKEND_ENV_FILE) FRONTEND_ENV_FILE=./$(ROOT_ENV_FILE) $(COMPOSE) --env-file ./$(ROOT_ENV_FILE) down --volumes --rmi local
 
 health: ## Check frontend and backend health endpoints
 	@curl -fsS http://localhost:3000 >/dev/null && echo "frontend: ok" || (echo "frontend: fail" && exit 1)

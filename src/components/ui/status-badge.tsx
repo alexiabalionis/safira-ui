@@ -1,20 +1,14 @@
 import { Badge } from "@mantine/core";
 
+import {
+  AUTOMACAO_ETAPA_LABEL,
+  normalizeAutomacaoEtapaKey,
+} from "@/services/automation";
 import { getStatusPalette } from "@/lib/status-colors";
 
-export function StatusBadge({
-  status,
-}: {
-  status:
-    | "Aguardando"
-    | "em_andamento"
-    | "Finalizado"
-    | "AGUARDANDO"
-    | "EM ANDAMENTO"
-    | "EM_ANDAMENTO"
-    | "FINALIZADO";
-}) {
+export function StatusBadge({ status }: { status: string }) {
   const palette = getStatusPalette(status);
+  const label = AUTOMACAO_ETAPA_LABEL[normalizeAutomacaoEtapaKey(status)];
   const styles = {
     root: {
       backgroundColor: palette.lightBg,
@@ -25,7 +19,7 @@ export function StatusBadge({
 
   return (
     <Badge size="xs" radius="sm" variant="light" styles={styles}>
-      {status}
+      {label}
     </Badge>
   );
 }

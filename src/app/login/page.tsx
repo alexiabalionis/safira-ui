@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { useAuth } from "@/components/auth/auth-provider";
-import { login } from "@/services/safira-api";
+import { login } from "@/services/integrations/auth.service";
 
 export default function LoginPage() {
   const { setSessionUser } = useAuth();

@@ -1,7 +1,25 @@
 import { config as loadEnv } from "dotenv";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { z } from "zod";
 
-loadEnv();
+const runtimeEnv = (
+  process.env.APP_ENV ??
+  process.env.NODE_ENV ??
+  "development"
+).toLowerCase();
+const envFilePath = path.resolve(
+  process.cwd(),
+  "config",
+  "env",
+  `${runtimeEnv}.env`,
+);
+
+if (existsSync(envFilePath)) {
+  loadEnv({ path: envFilePath });
+} else {
+  loadEnv();
+}
 
 const envSchema = z.object({
   NODE_ENV: z

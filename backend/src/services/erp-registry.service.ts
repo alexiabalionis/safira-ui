@@ -1,16 +1,5 @@
 import { ERPModel } from "../models/erp.model";
 
-const ERP_ALIASES = new Map<string, string>([
-  ["autosystem", "Linx Autosystem"],
-  ["auto system", "Linx Autosystem"],
-  ["autosytem", "Linx Autosystem"],
-  ["linx", "Linx Autosystem"],
-  ["lynx", "Linx Autosystem"],
-  ["linx autosystem", "Linx Autosystem"],
-  ["linx auto system", "Linx Autosystem"],
-  ["linx autosytem", "Linx Autosystem"],
-]);
-
 function removeDiacritics(value: string) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
@@ -40,7 +29,7 @@ export function canonicalizeErpName(rawValue: string | null | undefined) {
   if (!display) return null;
 
   const key = normalizeErpKey(display);
-  return ERP_ALIASES.get(key) ?? display;
+  return display;
 }
 
 export async function resolveOrCreateErp(rawValue: string | null | undefined) {

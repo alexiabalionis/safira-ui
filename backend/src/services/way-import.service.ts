@@ -1,4 +1,8 @@
 import { env } from "../config/env";
+import {
+  normalizeAutomacaoEtapaKey,
+  normalizeAutomacaoTipoKey,
+} from "../domain/automation";
 import { ClienteModel } from "../models/cliente.model";
 import { PostoModel } from "../models/posto.model";
 import { RedeModel } from "../models/rede.model";
@@ -111,37 +115,11 @@ function normalizeLabel(value: string) {
 }
 
 function parseAutomacaoTipo(value: string) {
-  const normalized = normalizeLabel(value);
-  if (!normalized) return null;
-
-  if (normalized.includes("SEMI")) return "SEMI-AUTOMAÇÃO" as const;
-  if (normalized.includes("MANUAL")) return "MANUAL" as const;
-  if (normalized.includes("AUTOM")) return "AUTOMAÇÃO" as const;
-
-  return null;
+  return normalizeAutomacaoTipoKey(value);
 }
 
 function parseAutomacaoEtapa(value: string) {
-  const normalized = normalizeLabel(value);
-  if (!normalized) return "AGUARDANDO" as const;
-
-  if (
-    normalized.includes("FINAL") ||
-    normalized.includes("CONCL") ||
-    normalized.includes("ATIV")
-  ) {
-    return "FINALIZADO" as const;
-  }
-
-  if (
-    normalized.includes("ANDAMENTO") ||
-    normalized.includes("HOMOLOG") ||
-    normalized.includes("PROCESS")
-  ) {
-    return "EM_ANDAMENTO" as const;
-  }
-
-  return "AGUARDANDO" as const;
+  return normalizeAutomacaoEtapaKey(value);
 }
 
 function parseCsvDate(value: string) {

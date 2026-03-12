@@ -15,12 +15,20 @@ type Props = {
   initialFase?: string;
   initialErp?: string;
   initialStatus?: string;
-  faseOptions: string[];
+  faseOptions: Array<string | { value: string; label: string }>;
   erpOptions: string[];
   faseLabel?: string;
   erpLabel?: string;
-  statusOptions?: string[];
+  statusOptions?: Array<string | { value: string; label: string }>;
 };
+
+function toSelectOptions(
+  options: Array<string | { value: string; label: string }>,
+) {
+  return options.map((option) =>
+    typeof option === "string" ? { value: option, label: option } : option,
+  );
+}
 
 export function EditStatusModal({
   opened,
@@ -84,7 +92,7 @@ export function EditStatusModal({
         label={faseLabel ?? "Fase"}
         value={fase ?? null}
         onChange={(value) => setFase(value ?? undefined)}
-        data={faseOptions}
+        data={toSelectOptions(faseOptions)}
         clearable
         placeholder="Não alterar"
         mb={8}
@@ -102,7 +110,9 @@ export function EditStatusModal({
         label="Status"
         value={status ?? null}
         onChange={(value) => setStatus(value ?? undefined)}
-        data={statusOptions ?? ["Aguardando", "em_andamento", "Finalizado"]}
+        data={toSelectOptions(
+          statusOptions ?? ["Aguardando", "em_andamento", "Finalizado"],
+        )}
         clearable
         placeholder="Não alterar"
       />

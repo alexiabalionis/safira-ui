@@ -5,9 +5,7 @@ import {
   Button,
   Dialog,
   Group,
-  Modal,
   Paper,
-  Text,
   Tooltip,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
@@ -17,7 +15,6 @@ import { useEffect, useMemo, useState } from "react";
 import { PostoFormModal } from "@/components/postos/posto-form-modal";
 import { DataTable } from "@/components/ui/data-table";
 import { EditStatusModal } from "@/components/ui/edit-status-modal";
-import { SectionHeader } from "@/components/ui/section-header";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { TableFilters } from "@/components/ui/table-filters";
 import { usePagination } from "@/hooks/use-pagination";
@@ -26,24 +23,33 @@ import {
   useCreatePostoMutation,
   useERPsQuery,
   usePostoRedesQuery,
-  usePostosQuery,
+  usePostosPageQuery,
   useUpdatePostoMutation,
 } from "@/hooks/use-safira-data";
-import type { Posto } from "@/services/types";
+import {
+  AUTOMACAO_ETAPA_OPTIONS,
+  AUTOMACAO_TIPO_OPTIONS,
+  AutomacaoEtapaKey,
+  AutomacaoTipoKey,
+  normalizeAutomacaoEtapaKey,
+  normalizeAutomacaoTipoKey,
+} from "@/services/automation";
+import type { Posto } from "@/types/core.types";
 
 export default function PostosPage() {
-  const { page, pageSize, setPage } = usePagination(1, 25);
+  const { page, pageSize, setPage, setPageSize } = usePagination(1, 25);
   const [search, setSearch] = useState("");
-  const [tipo, setTipo] = useState<string | null>(null);
+  const [tipo, setTipo] = useState<AutomacaoTipoKey | null>(null);
   const [erpFiltro, setErpFiltro] = useState<string | null>(null);
-  const [redeNomeFiltro, setRedeNomeFiltro] = useState<string | null>(null);
-  const [etapa, setEtapa] = useState<string | null>(null);
+  const [redeIdFiltro, setRedeIdFiltro] = useState<string | null>(null);
+  const [etapa, setEtapa] = useState<AutomacaoEtapaKey | null>(null);
   const [ultimaAtualizacao, setUltimaAtualizacao] = useState("");
   const [creating, setCreating] = useState(false);
   const [editing, setEditing] = useState<Posto | null>(null);
   const [selectedPostoIds, setSelectedPostoIds] = useState<string[]>([]);
   const [batchPromptOpened, setBatchPromptOpened] = useState(false);
   const [batchEditOpened, setBatchEditOpened] = useState(false);
+  const postoFormOpened = creating || Boolean(editing);
 
   const postoRedesQuery = usePostoRedesQuery();
   const erpsQuery = useERPsQuery({
@@ -53,16 +59,10 @@ export default function PostosPage() {
   const clientesQuery = useClientesQuery({
     page: 1,
     pageSize: 5000,
+    enabled: postoFormOpened,
   });
 
-  const selectedRedeId =
-    redeNomeFiltro && postoRedesQuery.data
-      ? ((postoRedesQuery.data as Array<{ id: string; nome: string }>).find(
-          (item) => item.nome === redeNomeFiltro,
-        )?.id ?? undefined)
-      : undefined;
-
-  const query = usePostosQuery({
+  const query = usePostosPageQuery({
     page,
     pageSize,
     search,
@@ -70,7 +70,7 @@ export default function PostosPage() {
     endDate: ultimaAtualizacao ? `${ultimaAtualizacao}T23:59:59` : undefined,
     tipo: tipo ?? undefined,
     erp: erpFiltro ?? undefined,
-    redeId: selectedRedeId,
+    redeId: redeIdFiltro ?? undefined,
     etapa: etapa ?? undefined,
   });
   const updateMutation = useUpdatePostoMutation();
@@ -142,7 +142,7 @@ export default function PostosPage() {
       email: undefined,
       automacao: {
         tipo: undefined,
-        etapa: "AGUARDANDO",
+        etapa: AutomacaoEtapaKey.aguardando,
         dataEtapa: null,
         analistaResponsavel: undefined,
       },
@@ -161,15 +161,13 @@ export default function PostosPage() {
   return (
     <Group w="100%">
       <Paper p={20} radius={12} w="100%">
-        <SectionHeader title="Gestão de Postos" />
-
         <TableFilters
           search={search}
           onSearchChange={(value) => {
             setSearch(value);
             setPage(1);
           }}
-          searchLabel="Razão social / Nome fantasia"
+          searchLabel="Razão social / Nome fantasia / CNPJ"
           date={ultimaAtualizacao}
           dateLabel="Última atualização"
           onDateChange={(value) => {
@@ -178,10 +176,10 @@ export default function PostosPage() {
           }}
           phase={tipo}
           onPhaseChange={(value) => {
-            setTipo(value);
+            setTipo(normalizeAutomacaoTipoKey(value));
             setPage(1);
           }}
-          phaseOptions={["AUTOMAÇÃO", "SEMI-AUTOMAÇÃO", "MANUAL"]}
+          phaseOptions={AUTOMACAO_TIPO_OPTIONS}
           phaseLabel="Tipo"
           erp={erpFiltro}
           onErpChange={(value) => {
@@ -190,19 +188,19 @@ export default function PostosPage() {
           }}
           erpOptions={erpOptions}
           erpLabel="ERP"
-          network={redeNomeFiltro}
+          network={redeIdFiltro}
           onNetworkChange={(value) => {
-            setRedeNomeFiltro(value);
+            setRedeIdFiltro(value);
             setPage(1);
           }}
-          networkOptions={redeOptions.map((item) => item.label)}
+          networkOptions={redeOptions}
           networkLabel="Rede"
           status={etapa}
           onStatusChange={(value) => {
-            setEtapa(value);
+            setEtapa(value ? normalizeAutomacaoEtapaKey(value) : null);
             setPage(1);
           }}
-          statusOptions={["AGUARDANDO", "EM_ANDAMENTO", "FINALIZADO"]}
+          statusOptions={AUTOMACAO_ETAPA_OPTIONS}
           statusLabel="Status"
           actions={
             <Group gap={8}>
@@ -224,7 +222,7 @@ export default function PostosPage() {
           columns={[
             {
               key: "cnpjEc",
-              header: "CNPJ EC",
+              header: "CNPJ",
               sortable: true,
               sortAccessor: (row) => row.cnpjEc,
               render: (row) => row.cnpjEc,
@@ -253,7 +251,16 @@ export default function PostosPage() {
             {
               key: "automacao",
               header: "Automação",
-              render: (row) => row.automacao.tipo ?? "-",
+              render: (row) => {
+                const tipoKey = normalizeAutomacaoTipoKey(row.automacao.tipo);
+                if (!tipoKey) return "-";
+
+                return (
+                  AUTOMACAO_TIPO_OPTIONS.find(
+                    (option) => option.value === tipoKey,
+                  )?.label ?? "-"
+                );
+              },
             },
 
             {
@@ -283,9 +290,10 @@ export default function PostosPage() {
                   <StatusBadge
                     status={
                       row.automacao.etapa as
-                        | "AGUARDANDO"
-                        | "EM_ANDAMENTO"
-                        | "FINALIZADO"
+                        | AutomacaoEtapaKey.aguardando
+                        | AutomacaoEtapaKey.em_andamento
+                        | AutomacaoEtapaKey.bloqueado
+                        | AutomacaoEtapaKey.finalizado
                     }
                   />
                 ) : (
@@ -313,6 +321,8 @@ export default function PostosPage() {
           page={page}
           pageSize={pageSize}
           onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+          pageSizeOptions={[15, 25, 50, 100]}
           loading={query.isFetching}
           rowKey={(row) => row.id}
           selectableRows
@@ -348,13 +358,13 @@ export default function PostosPage() {
         <EditStatusModal
           opened={batchEditOpened && selectedPostoIds.length > 1}
           onClose={() => setBatchEditOpened(false)}
-          initialFase={batchInitialTipo ?? "AUTOMAÇÃO"}
+          initialFase={batchInitialTipo ?? AutomacaoTipoKey.automacao}
           initialErp={batchInitialErp}
           initialStatus={batchInitialEtapa}
-          faseOptions={["AUTOMAÇÃO", "SEMI-AUTOMAÇÃO", "MANUAL"]}
+          faseOptions={AUTOMACAO_TIPO_OPTIONS}
           erpOptions={erpOptions}
           faseLabel="Automação"
-          statusOptions={["AGUARDANDO", "EM_ANDAMENTO", "FINALIZADO"]}
+          statusOptions={AUTOMACAO_ETAPA_OPTIONS}
           onSave={async (value) => {
             if (selectedPostoIds.length < 2) return;
 
@@ -380,9 +390,11 @@ export default function PostosPage() {
                         automacao: {
                           ...current.automacao,
                           tipo:
-                            (value.fase as Posto["automacao"]["tipo"]) ??
+                            normalizeAutomacaoTipoKey(value.fase) ??
                             current.automacao.tipo,
-                          etapa: value.status ?? current.automacao.etapa,
+                          etapa: value.status
+                            ? normalizeAutomacaoEtapaKey(value.status)
+                            : current.automacao.etapa,
                           dataEtapa: new Date(),
                         },
                       }

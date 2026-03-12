@@ -8,7 +8,7 @@ import {
   filterPrioritizedIntegrations,
   getIntegrationDelayDays,
 } from "@/services/dashboard-utils";
-import type { IntegrationItem } from "@/services/types";
+import type { IntegrationItem } from "@/types/core.types";
 import { Group } from "@mantine/core";
 
 type Props = {

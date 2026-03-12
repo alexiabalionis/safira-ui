@@ -6,9 +6,13 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "APP_ENV=development NODE_ENV=development next dev",
+    "dev:production": "APP_ENV=development NODE_ENV=development SAFIRA_API_INTERNAL_URL=https://safira.ailog.com.br NEXT_PUBLIC_API_URL=https://safira.ailog.com.br next dev",
+    "clean:next": "rm -rf .next",
+    "build": "npm run clean:next && next build",
+    "build:production": "npm run clean:next && next build",
     "start": "next start",
+    "start:production": "APP_ENV=production NODE_ENV=production next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -22,6 +26,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.2",
+    "recharts": "^3.8.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

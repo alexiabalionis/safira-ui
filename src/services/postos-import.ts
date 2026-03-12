@@ -1,4 +1,9 @@
-import type { Posto } from "@/services/types";
+import {
+  AutomacaoEtapaKey,
+  normalizeAutomacaoEtapaKey,
+  normalizeAutomacaoTipoKey,
+} from "@/services/automation";
+import type { Posto } from "@/types/core.types";
 
 type ImportPostoInput = Omit<Posto, "id">;
 
@@ -112,29 +117,11 @@ function parseDate(value: string) {
 }
 
 function parseTipo(value: string): Posto["automacao"]["tipo"] | undefined {
-  const normalized = normalizeHeader(value);
-  if (!normalized) return undefined;
-  if (normalized.includes("semi")) return "SEMI-AUTOMAÇÃO";
-  if (normalized.includes("manual")) return "MANUAL";
-  if (normalized.includes("auto")) return "AUTOMAÇÃO";
-  return undefined;
+  return normalizeAutomacaoTipoKey(value) ?? undefined;
 }
 
-function parseEtapa(value: string): string {
-  const normalized = normalizeHeader(value);
-  if (!normalized) return "AGUARDANDO";
-  if (normalized.includes("aguardando")) return "AGUARDANDO";
-  if (
-    normalized.includes("emandamento") ||
-    normalized.includes("andamento") ||
-    normalized.includes("ativo")
-  ) {
-    return "EM_ANDAMENTO";
-  }
-  if (normalized.includes("finalizado")) {
-    return "FINALIZADO";
-  }
-  return "AGUARDANDO";
+function parseEtapa(value: string): AutomacaoEtapaKey {
+  return normalizeAutomacaoEtapaKey(value);
 }
 
 function buildColumnMap(headers: string[]) {

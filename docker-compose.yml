@@ -24,12 +24,10 @@ services:
     depends_on:
       - mongodb
     env_file:
-      - ./backend/.env.docker
+      - ${BACKEND_ENV_FILE:-./backend/config/env/development.env}
     environment:
-      NODE_ENV: production
-      PORT: 3333
+      APP_ENV: ${APP_ENV:-development}
       MONGODB_URI: mongodb://mongodb:27017/safira
-      MONGODB_DB_NAME: safira
     ports:
       - "3333:3333"
     networks:
@@ -41,16 +39,18 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3333}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
     container_name: safira-frontend
     restart: unless-stopped
     depends_on:
       - backend
+    env_file:
+      - ${FRONTEND_ENV_FILE:-./config/env/development.env}
     environment:
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV:-development}
       PORT: 3000
-      SAFIRA_API_INTERNAL_URL: ${SAFIRA_API_INTERNAL_URL:-http://backend:3333}
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3333}
+      SAFIRA_API_INTERNAL_URL: ${SAFIRA_API_INTERNAL_URL}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
     ports:
       - "3000:3000"
     networks:

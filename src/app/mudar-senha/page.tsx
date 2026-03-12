@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import { PrivateRoute } from "@/components/auth/private-route";
 import { useAuth } from "@/components/auth/auth-provider";
-import { changePassword } from "@/services/safira-api";
+import { changePassword } from "@/services/integrations/auth.service";
 
 export default function MudarSenhaPage() {
   const router = useRouter();

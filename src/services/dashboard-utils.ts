@@ -1,4 +1,4 @@
-import type { IntegrationItem } from "@/services/types";
+import type { IntegrationItem } from "@/types/core.types";
 import {
   ActionStatusFilter,
   NetworkFocusFilter,

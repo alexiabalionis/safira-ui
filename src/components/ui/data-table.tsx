@@ -4,6 +4,7 @@ import {
   Group,
   Menu,
   Pagination,
+  Select,
   Table,
   Text,
 } from "@mantine/core";
@@ -26,6 +27,8 @@ type Props<T> = {
   page: number;
   pageSize: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange?: (pageSize: number) => void;
+  pageSizeOptions?: number[];
   loading?: boolean;
   rowKey: (row: T) => string;
   selectableRows?: boolean;
@@ -40,6 +43,8 @@ export function DataTable<T>({
   page,
   pageSize,
   onPageChange,
+  onPageSizeChange,
+  pageSizeOptions = [15, 25, 50, 100],
   loading,
   rowKey,
   selectableRows = false,
@@ -123,7 +128,7 @@ export function DataTable<T>({
       <Table
         className="safira-data-table"
         highlightOnHover
-        horizontalSpacing="lg"
+        horizontalSpacing="md"
         verticalSpacing="md"
         stickyHeader
         stickyHeaderOffset={60}
@@ -131,8 +136,10 @@ export function DataTable<T>({
         <Table.Thead>
           <Table.Tr>
             {selectableRows ? (
-              <Table.Th ta="center" w={38}>
+              <Table.Th ta="center" w={10}>
                 <Checkbox
+                  radius={4}
+                  size="xs"
                   checked={allVisibleSelected}
                   indeterminate={!allVisibleSelected && someVisibleSelected}
                   onChange={(event) =>
@@ -190,6 +197,8 @@ export function DataTable<T>({
               {selectableRows ? (
                 <Table.Td ta="center">
                   <Checkbox
+                    radius={4}
+                    size="xs"
                     checked={selectedSet.has(rowKey(row))}
                     onChange={(event) =>
                       toggleRowSelection(
@@ -223,9 +232,27 @@ export function DataTable<T>({
       </Table>
 
       <div className="mt-2 flex items-center justify-between">
-        <Text size="xs" c="dimmed">
-          Total: {total}
-        </Text>
+        <Group gap={8}>
+          <Text size="xs" c="dimmed">
+            Total: {total}
+          </Text>
+          {onPageSizeChange ? (
+            <Select
+              size="xs"
+              value={String(pageSize)}
+              onChange={(value) => {
+                if (!value) return;
+                onPageSizeChange(Number(value));
+              }}
+              data={pageSizeOptions.map((option) => ({
+                value: String(option),
+                label: `${option} por página`,
+              }))}
+              allowDeselect={false}
+              w={130}
+            />
+          ) : null}
+        </Group>
         <Pagination
           total={totalPages}
           value={page}

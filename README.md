@@ -9,8 +9,36 @@ Aplicacao em monorepo com:
 ## Como rodar em producao
 
 ```bash
-docker-compose build
-docker-compose up -d
+make docker-build ENV=production
+make docker-up ENV=production
+```
+
+## Selecao de ambiente (development x production)
+
+O projeto agora usa arquivos de ambiente versionados para escolher variaveis conforme o alvo:
+
+- frontend/compose: `config/env/development.env` e `config/env/production.env`
+- backend: `backend/config/env/development.env` e `backend/config/env/production.env`
+
+Comportamento padrao:
+
+- `development`: aponta para `http://localhost:3333`
+- `production`: aponta para `https://safira.ailog.com.br`
+
+Exemplos:
+
+```bash
+# desenvolvimento
+make dev-frontend ENV=development
+make dev-backend ENV=development
+
+# docker em desenvolvimento
+make docker-build ENV=development
+make docker-up ENV=development
+
+# docker em producao
+make docker-build ENV=production
+make docker-up ENV=production
 ```
 
 ## Publicar imagens no Docker Hub

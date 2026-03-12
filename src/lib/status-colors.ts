@@ -20,6 +20,22 @@ export function normalizeStatusKind(status: string): SemanticStatusKind {
 }
 
 export function getStatusPalette(status: string) {
+  const normalized = status
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .trim()
+    .toUpperCase()
+    .replace(/\s+/g, "_");
+
+  if (normalized === "BLOQUEADO") {
+    return {
+      lightBg: "#FDECEC",
+      text: "#C92A2A",
+      border: "#F8C9C9",
+      solid: "#E03131",
+    };
+  }
+
   const kind = normalizeStatusKind(status);
 
   if (kind === "completed") {

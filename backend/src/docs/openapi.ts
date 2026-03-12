@@ -1,3 +1,10 @@
+import { env } from "../config/env";
+
+const openApiServerUrl =
+  env.NODE_ENV === "production"
+    ? "https://safira.ailog.com.br"
+    : `http://localhost:${env.PORT}`;
+
 export const openApiSpec = {
   openapi: "3.0.3",
   info: {
@@ -7,8 +14,11 @@ export const openApiSpec = {
   },
   servers: [
     {
-      url: "http://localhost:3333",
-      description: "Ambiente local",
+      url: openApiServerUrl,
+      description:
+        env.NODE_ENV === "production"
+          ? "Ambiente producao"
+          : "Ambiente desenvolvimento",
     },
   ],
   components: {
@@ -53,6 +63,37 @@ export const openApiSpec = {
       get: {
         tags: ["Postos"],
         summary: "Lista postos",
+        parameters: [
+          {
+            in: "query",
+            name: "sortBy",
+            schema: {
+              type: "string",
+              enum: [
+                "nomeFantasia",
+                "razaoSocial",
+                "cidade",
+                "uf",
+                "createdAt",
+                "updatedAt",
+                "dataEtapa",
+                "etapa",
+                "responsavelPosto",
+                "analistaResponsavel",
+              ],
+            },
+            description: "Campo de ordenação explícita da listagem",
+          },
+          {
+            in: "query",
+            name: "sortOrder",
+            schema: {
+              type: "string",
+              enum: ["asc", "desc"],
+            },
+            description: "Direção da ordenação explícita",
+          },
+        ],
       },
       post: {
         tags: ["Postos"],
@@ -155,7 +196,8 @@ export const openApiSpec = {
     "/api/dashboard/overview": {
       get: {
         tags: ["Dashboard"],
-        summary: "Retorna visão geral de progresso de automação",
+        summary:
+          "Retorna visão geral de progresso de automação e agregados lean flow",
       },
     },
     "/api/auth/login": {

@@ -202,7 +202,7 @@ export async function createUser(req: Request, res: Response) {
     email: payload.email.trim().toLowerCase(),
     role: payload.role,
     passwordHash,
-    forcePasswordChange: true,
+    forcePasswordChange: payload.role === "visitante" ? false : true,
     ativo: true,
   });
 

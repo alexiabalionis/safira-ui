@@ -3,6 +3,7 @@ export const queryKeys = {
   integrations: (page: number, pageSize: number) =>
     ["integrations", page, pageSize] as const,
   postos: (params: unknown) => ["postos", params] as const,
+  postosInfinite: (params: unknown) => ["postos", "infinite", params] as const,
   postosRedes: ["postos-redes"] as const,
   automations: (params: unknown) => ["automations", params] as const,
   clientes: (params: unknown) => ["clientes", params] as const,

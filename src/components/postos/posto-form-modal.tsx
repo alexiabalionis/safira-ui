@@ -5,7 +5,13 @@ import { notifications } from "@mantine/notifications";
 import { useEffect, useMemo, useState } from "react";
 
 import { ErpSelect } from "@/components/ui/erp-select";
-import type { Posto } from "@/services/types";
+import {
+  AUTOMACAO_ETAPA_OPTIONS,
+  AUTOMACAO_TIPO_OPTIONS,
+  normalizeAutomacaoEtapaKey,
+  normalizeAutomacaoTipoKey,
+} from "@/services/automation";
+import type { Posto } from "@/types/core.types";
 
 type PostoFormInput = Omit<Posto, "id">;
 
@@ -25,8 +31,6 @@ type Props = {
   onSubmit: (payload: PostoFormInput) => Promise<void>;
 };
 
-const tipoOptions = ["AUTOMAÇÃO", "SEMI-AUTOMAÇÃO", "MANUAL"];
-const etapaOptions = ["AGUARDANDO", "EM_ANDAMENTO", "FINALIZADO"];
 const ufOptions = [
   "AC",
   "AL",
@@ -277,6 +281,7 @@ export function PostoFormModal({
                 }))
               }
               options={erpOptions}
+              nullOptionLabel="Sem ERP"
               placeholder="Selecione"
             />
           </div>
@@ -333,14 +338,14 @@ export function PostoFormModal({
             <Select
               size="xs"
               label="Tipo de Automação"
-              data={tipoOptions}
+              data={AUTOMACAO_TIPO_OPTIONS}
               value={form.automacao.tipo ?? null}
               onChange={(value) =>
                 setForm((prev) => ({
                   ...prev,
                   automacao: {
                     ...prev.automacao,
-                    tipo: (value as Posto["automacao"]["tipo"]) ?? undefined,
+                    tipo: normalizeAutomacaoTipoKey(value) ?? undefined,
                   },
                 }))
               }
@@ -350,14 +355,14 @@ export function PostoFormModal({
             <Select
               size="xs"
               label="Etapa"
-              data={etapaOptions}
+              data={AUTOMACAO_ETAPA_OPTIONS}
               value={form.automacao.etapa ?? null}
               onChange={(value) =>
                 setForm((prev) => ({
                   ...prev,
                   automacao: {
                     ...prev.automacao,
-                    etapa: value ?? "AGUARDANDO",
+                    etapa: normalizeAutomacaoEtapaKey(value),
                   },
                 }))
               }

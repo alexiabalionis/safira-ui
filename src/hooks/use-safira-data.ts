@@ -2,6 +2,7 @@
 
 import {
   keepPreviousData,
+  useInfiniteQuery,
   useMutation,
   useQuery,
   useQueryClient,
@@ -25,6 +26,7 @@ import {
   listClientes,
   listERPs,
   listPostos,
+  listPostosPage,
   listRedes,
   listReports,
   listReportsForExport,
@@ -33,10 +35,16 @@ import {
   updateAutomationStatus,
   updateCliente,
   updateERP,
+  updateRede,
   updatePosto,
   updateUserRole,
   updateUserStatus,
-} from "@/services/safira-api";
+} from "@/services/integrations";
+import type {
+  AutomacaoEtapaKey,
+  AutomacaoTipoKey,
+} from "@/services/automation";
+import type { PostoSortBy, SortOrder } from "@/types/posto.types";
 
 export function useDashboardQuery() {
   return useQuery({
@@ -51,15 +59,75 @@ export function usePostosQuery(params: {
   search?: string;
   startDate?: string;
   endDate?: string;
-  tipo?: string;
+  tipo?: AutomacaoTipoKey;
   erp?: string;
   redeId?: string;
-  etapa?: string;
+  etapa?: AutomacaoEtapaKey;
+  sortBy?: PostoSortBy;
+  sortOrder?: SortOrder;
 }) {
   return useQuery({
     queryKey: queryKeys.postos(params),
     queryFn: () => listPostos(params),
     placeholderData: keepPreviousData,
+  });
+}
+
+export function usePostosPageQuery(params: {
+  page: number;
+  pageSize: number;
+  search?: string;
+  startDate?: string;
+  endDate?: string;
+  tipo?: AutomacaoTipoKey;
+  erp?: string;
+  redeId?: string;
+  etapa?: AutomacaoEtapaKey;
+  sortBy?: PostoSortBy;
+  sortOrder?: SortOrder;
+}) {
+  return useQuery({
+    queryKey: queryKeys.postos(params),
+    queryFn: () => listPostosPage(params),
+    placeholderData: keepPreviousData,
+  });
+}
+
+export function useInfinitePostosPageQuery(params: {
+  pageSize: number;
+  search?: string;
+  startDate?: string;
+  endDate?: string;
+  tipo?: AutomacaoTipoKey;
+  erp?: string;
+  redeId?: string;
+  etapa?: AutomacaoEtapaKey;
+  sortBy?: PostoSortBy;
+  sortOrder?: SortOrder;
+}) {
+  return useInfiniteQuery({
+    queryKey: queryKeys.postosInfinite(params),
+    queryFn: ({ pageParam }) =>
+      listPostosPage({
+        ...params,
+        page: pageParam,
+      }),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      const loadedItems = allPages.reduce(
+        (count, page) => count + page.data.length,
+        0,
+      );
+
+      if (
+        loadedItems >= lastPage.total ||
+        lastPage.data.length < params.pageSize
+      ) {
+        return undefined;
+      }
+
+      return allPages.length + 1;
+    },
   });
 }
 
@@ -100,6 +168,7 @@ export function useUpdatePostoMutation() {
       await queryClient.invalidateQueries({ queryKey: ["postos"] });
       await queryClient.invalidateQueries({ queryKey: queryKeys.postosRedes });
       await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
     },
   });
 }
@@ -112,6 +181,7 @@ export function useCreatePostoMutation() {
       await queryClient.invalidateQueries({ queryKey: ["postos"] });
       await queryClient.invalidateQueries({ queryKey: queryKeys.postosRedes });
       await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
     },
   });
 }
@@ -124,6 +194,7 @@ export function useImportPostosMutation() {
       await queryClient.invalidateQueries({ queryKey: ["postos"] });
       await queryClient.invalidateQueries({ queryKey: queryKeys.postosRedes });
       await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
     },
   });
 }
@@ -164,11 +235,13 @@ export function useClientesQuery(params: {
   pageSize: number;
   search?: string;
   postoCnpj?: string;
+  enabled?: boolean;
 }) {
   return useQuery({
     queryKey: queryKeys.clientes(params),
     queryFn: () => listClientes(params),
     placeholderData: keepPreviousData,
+    enabled: params.enabled,
   });
 }
 
@@ -280,6 +353,9 @@ export function useCreateERPMutation() {
     mutationFn: createERP,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["erps"] });
+      await queryClient.invalidateQueries({ queryKey: ["postos"] });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
     },
   });
 }
@@ -296,6 +372,8 @@ export function useUpdateERPMutation() {
     }) => updateERP(id, payload),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["erps"] });
+      await queryClient.invalidateQueries({ queryKey: ["postos"] });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
       await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
     },
   });
@@ -305,6 +383,22 @@ export function useCreateRedeMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: createRede,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["redes"] });
+    },
+  });
+}
+
+export function useUpdateRedeMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      id,
+      payload,
+    }: {
+      id: string;
+      payload: Parameters<typeof updateRede>[1];
+    }) => updateRede(id, payload),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["redes"] });
     },
@@ -327,6 +421,9 @@ export function useDeleteERPMutation() {
     mutationFn: deleteERP,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["erps"] });
+      await queryClient.invalidateQueries({ queryKey: ["postos"] });
+      await queryClient.invalidateQueries({ queryKey: ["reports"] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
     },
   });
 }
@@ -347,16 +444,22 @@ export function useReportsQuery(params: {
   search?: string;
   startDate?: string;
   endDate?: string;
-  category?: "Posto" | "Rede" | "ERP";
-  tipo?: string;
+  category?: "Posto" | "Rede" | "ERP" | "Usuário";
+  tipo?: AutomacaoTipoKey;
   erp?: string;
+  erpStatus?: "Aguardando" | "em_andamento" | "Bloqueado" | "Finalizado";
   redeId?: string;
-  etapa?: string;
+  etapa?: AutomacaoEtapaKey;
+  userRole?: "admin" | "operador" | "visitante";
+  userStatus?: "ativo" | "inativo";
+  passwordState?: "PENDENTE" | "CONCLUIDA";
+  enabled?: boolean;
 }) {
   return useQuery({
     queryKey: queryKeys.reports(params),
     queryFn: () => listReports(params),
     placeholderData: keepPreviousData,
+    enabled: params.enabled,
   });
 }
 

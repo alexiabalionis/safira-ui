@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 
 import { ERPModel } from "../models/erp.model";
+import { PostoModel } from "../models/posto.model";
 import {
   canonicalizeErpName,
   normalizeErpKey,
@@ -101,6 +102,28 @@ export async function updateERP(req: Request, res: Response) {
 
   if (!erp) {
     throw new ApiError(404, "ERP not found");
+  }
+
+  if (nome) {
+    await PostoModel.updateMany(
+      {
+        $or: [
+          { erpId: id },
+          {
+            erp: {
+              $regex: `^${nome.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`,
+              $options: "i",
+            },
+          },
+        ],
+      },
+      {
+        $set: {
+          erp: nome,
+          erpId: id,
+        },
+      },
+    );
   }
 
   return res.json(serializeERP(erp as Record<string, unknown>));

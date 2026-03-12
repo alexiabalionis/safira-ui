@@ -2,7 +2,7 @@ import { Box, Group, Text } from "@mantine/core";
 import { useMemo } from "react";
 
 import { getStatusPalette } from "@/lib/status-colors";
-import type { DashboardOverview } from "@/services/types";
+import type { DashboardOverview } from "@/types/core.types";
 
 import { StatusDistributionBar } from "./status-distribution-bar";
 

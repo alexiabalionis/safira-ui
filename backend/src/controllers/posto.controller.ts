@@ -1,6 +1,11 @@
 import type { FilterQuery } from "mongoose";
 import type { Request, Response } from "express";
 
+import { ERPModel } from "../models/erp.model";
+import {
+  normalizeAutomacaoEtapaKey,
+  normalizeAutomacaoTipoKey,
+} from "../domain/automation";
 import { PostoModel } from "../models/posto.model";
 import { resolveOrCreateErp } from "../services/erp-registry.service";
 import { ApiError } from "../utils/api-error";
@@ -12,6 +17,25 @@ import {
 } from "../validators/posto.schema";
 
 type PostoRecord = Record<string, unknown>;
+
+type ListPostosQuery = ReturnType<typeof listPostosQuerySchema.parse>;
+
+const POSTO_SORT_FIELDS = {
+  nomeFantasia: "nomeFantasia",
+  razaoSocial: "razaoSocial",
+  cidade: "cidade",
+  uf: "uf",
+  createdAt: "createdAt",
+  updatedAt: "updatedAt",
+  dataEtapa: "automacao.dataEtapa",
+  etapa: "automacao.etapa",
+  responsavelPosto: "responsavelPosto",
+  analistaResponsavel: "automacao.analistaResponsavel",
+} as const;
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
 function serializePosto(input: PostoRecord) {
   const { _id, clientesQueAbastecem, redeId, erpId, erp, ...rest } = input;
@@ -42,6 +66,25 @@ function serializePosto(input: PostoRecord) {
   return {
     id: String(_id),
     ...rest,
+    automacao:
+      rest.automacao && typeof rest.automacao === "object"
+        ? {
+            ...(rest.automacao as Record<string, unknown>),
+            tipo:
+              normalizeAutomacaoTipoKey(
+                (rest.automacao as Record<string, unknown>).tipo as
+                  | string
+                  | null
+                  | undefined,
+              ) ?? null,
+            etapa: normalizeAutomacaoEtapaKey(
+              (rest.automacao as Record<string, unknown>).etapa as
+                | string
+                | null
+                | undefined,
+            ),
+          }
+        : rest.automacao,
     erp: normalizedErp?.nome || (typeof erp === "string" ? erp : null),
     erpId: normalizedErp?.id ?? null,
     redeId:
@@ -57,15 +100,38 @@ function serializePosto(input: PostoRecord) {
   };
 }
 
+function buildPostosSort(query: ListPostosQuery) {
+  const sortBy = query.sortBy ?? "nomeFantasia";
+  const primaryField = POSTO_SORT_FIELDS[sortBy];
+  const direction = query.sortOrder === "desc" ? -1 : 1;
+  const sort: Record<string, 1 | -1> = {
+    [primaryField]: direction,
+  };
+
+  if (primaryField !== POSTO_SORT_FIELDS.nomeFantasia) {
+    sort.nomeFantasia = 1;
+  }
+
+  sort._id = 1;
+
+  return sort;
+}
+
 export async function listPostos(req: Request, res: Response) {
   const query = listPostosQuerySchema.parse(req.query);
   const filters: FilterQuery<PostoRecord> = {};
 
   if (query.search) {
+    const escapedSearch = escapeRegExp(query.search.trim());
+    const digitsOnly = query.search.replace(/\D/g, "");
     filters.$or = [
-      { razaoSocial: { $regex: query.search, $options: "i" } },
-      { nomeFantasia: { $regex: query.search, $options: "i" } },
-      { responsavelPosto: { $regex: query.search, $options: "i" } },
+      { razaoSocial: { $regex: escapedSearch, $options: "i" } },
+      { nomeFantasia: { $regex: escapedSearch, $options: "i" } },
+      { responsavelPosto: { $regex: escapedSearch, $options: "i" } },
+      { cnpjEc: { $regex: escapedSearch, $options: "i" } },
+      ...(digitsOnly
+        ? [{ cnpjEcDigits: { $regex: escapeRegExp(digitsOnly) } }]
+        : []),
     ];
   }
 
@@ -81,11 +147,41 @@ export async function listPostos(req: Request, res: Response) {
     filters.redeId = query.redeId;
   }
 
+  if (query.tipo) {
+    filters["automacao.tipo"] = query.tipo;
+  }
+
+  if (query.etapa) {
+    filters["automacao.etapa"] = query.etapa;
+  }
+
+  if (query.erp) {
+    filters.erp = {
+      $regex: `^${escapeRegExp(query.erp)}$`,
+      $options: "i",
+    };
+  }
+
+  if (query.startDate || query.endDate) {
+    const dateFilters: Record<string, Date> = {};
+
+    if (query.startDate) {
+      dateFilters.$gte = new Date(query.startDate);
+    }
+
+    if (query.endDate) {
+      dateFilters.$lte = new Date(query.endDate);
+    }
+
+    filters["automacao.dataEtapa"] = dateFilters;
+  }
+
   const skip = (query.page - 1) * query.pageSize;
+  const sort = buildPostosSort(query);
 
   const [items, total] = await Promise.all([
     PostoModel.find(filters)
-      .sort({ nomeFantasia: 1 })
+      .sort(sort)
       .skip(skip)
       .limit(query.pageSize)
       .populate({ path: "redeId", select: "_id nome" })
@@ -140,26 +236,56 @@ export async function getPostoById(req: Request, res: Response) {
 
 export async function updatePosto(req: Request, res: Response) {
   const id = postoIdSchema.parse(req.params.id);
-  const payload = updatePostoSchema.parse(req.body);
+  const body = req.body as Record<string, unknown>;
+  const payload = updatePostoSchema.parse({
+    ...body,
+    erpId: (body.erpId ?? body.erp_id) as unknown,
+  });
 
-  const erpUpdate =
-    payload.erp === undefined
-      ? undefined
-      : payload.erp === null
+  const { erpId: payloadErpId, ...restPayload } = payload;
+
+  let erpUpdate:
+    | {
+        erpName: string | null;
+        erpId: string | null;
+      }
+    | undefined;
+
+  if (payloadErpId !== undefined) {
+    if (payloadErpId === null) {
+      erpUpdate = { erpName: null, erpId: null };
+    } else {
+      const selectedErp = await ERPModel.findById(payloadErpId)
+        .select("_id nome")
+        .lean();
+
+      if (!selectedErp) {
+        throw new ApiError(400, "ERP informado nao encontrado");
+      }
+
+      erpUpdate = {
+        erpName: selectedErp.nome,
+        erpId: String(selectedErp._id),
+      };
+    }
+  } else if (restPayload.erp !== undefined) {
+    erpUpdate =
+      restPayload.erp === null
         ? { erpName: null, erpId: null }
-        : await resolveOrCreateErp(payload.erp);
+        : await resolveOrCreateErp(restPayload.erp);
+  }
 
   const posto = await PostoModel.findByIdAndUpdate(
     id,
     {
-      ...payload,
+      ...restPayload,
       ...(erpUpdate === undefined
         ? {}
         : {
             erp: erpUpdate.erpName,
             erpId: erpUpdate.erpId,
           }),
-      uf: payload.uf ? payload.uf.toUpperCase() : undefined,
+      uf: restPayload.uf ? restPayload.uf.toUpperCase() : undefined,
     },
     {
       new: true,

@@ -12,6 +12,17 @@ type AuthTokenPayload = {
 const publicRoutes = ["/login", "/_next", "/favicon.ico"];
 const authCookieName = process.env.AUTH_COOKIE_NAME || "safira_token";
 
+function redirectToLogin(request: NextRequest, pathname?: string) {
+  const loginUrl = new URL("/login", request.url);
+  if (pathname) {
+    loginUrl.searchParams.set("redirect", pathname);
+  }
+
+  const response = NextResponse.redirect(loginUrl);
+  response.cookies.delete(authCookieName);
+  return response;
+}
+
 const rolePermissions: Record<Role, string[]> = {
   admin: [
     "/dashboard",
@@ -55,6 +66,17 @@ export function middleware(request: NextRequest) {
     const token = request.cookies.get(authCookieName)?.value;
     const payload = token ? decodePayload(token) : null;
 
+    const nowInSeconds = Math.floor(Date.now() / 1000);
+    if (
+      token &&
+      (!payload ||
+        (typeof payload.exp === "number" && payload.exp < nowInSeconds))
+    ) {
+      const response = NextResponse.next();
+      response.cookies.delete(authCookieName);
+      return response;
+    }
+
     if (pathname === "/login" && payload?.role) {
       const nextUrl = new URL(
         payload.forcePasswordChange ? "/mudar-senha" : "/dashboard",
@@ -69,21 +91,17 @@ export function middleware(request: NextRequest) {
   const authToken = request.cookies.get(authCookieName)?.value;
 
   if (!authToken) {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("redirect", pathname);
-    return NextResponse.redirect(loginUrl);
+    return redirectToLogin(request, pathname);
   }
 
   const payload = decodePayload(authToken);
   if (!payload?.role) {
-    const loginUrl = new URL("/login", request.url);
-    return NextResponse.redirect(loginUrl);
+    return redirectToLogin(request, pathname);
   }
 
   const nowInSeconds = Math.floor(Date.now() / 1000);
   if (typeof payload.exp === "number" && payload.exp < nowInSeconds) {
-    const loginUrl = new URL("/login", request.url);
-    return NextResponse.redirect(loginUrl);
+    return redirectToLogin(request, pathname);
   }
 
   if (payload.forcePasswordChange && pathname !== "/mudar-senha") {
